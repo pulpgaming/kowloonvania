@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOWLOONVANIA — A Delivery Into Darkness | Pulp Gaming</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Bebas Neue, Cinzel, JetBrains Mono, Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@700;900&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pulpBg: '#08080a',
+                        pulpPanel: '#111116',
+                        pulpBorder: '#2a2a35',
+                        pulpCrimson: '#ff003c',
+                        pulpGold: '#ffb703',
+                        pulpNeonCyan: '#00f0ff',
+                    },
+                    fontFamily: {
+                        bebas: ['"Bebas Neue"', 'cursive', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS for Scanlines, Glows, and Pulp Arcade Textures -->
+    <style>
+        body {
+            background-color: #08080a;
+            color: #d1d5db;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Scanline Overlay for CRT Arcade Feel */
+        .scanlines {
+            position: relative;
+        }
+        .scanlines::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
+            background-size: 100% 4px;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* Neon & Cabinet Glow Effects */
+        .neon-glow-red {
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.35), inset 0 0 10px rgba(255, 0, 60, 0.2);
+        }
+        .neon-glow-gold {
+            box-shadow: 0 0 20px rgba(255, 183, 3, 0.25), inset 0 0 8px rgba(255, 183, 3, 0.15);
+        }
+        .neon-glow-cyan {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .text-glow-crimson {
+            text-shadow: 0 0 12px rgba(255, 0, 60, 0.8), 0 0 24px rgba(255, 0, 60, 0.4);
+        }
+        .text-glow-gold {
+            text-shadow: 0 0 10px rgba(255, 183, 3, 0.7);
+        }
+        
+        /* Arcade Cabinet Bevel Border */
+        .arcade-cabinet-border {
+            border: 3px solid #2a2a35;
+            border-top-color: #444455;
+            border-bottom-color: #111118;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08080a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff003c;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between scanlines antialiased selection:bg-pulpCrimson selection:text-white">
+
+    <!-- 1. Header Announcement Bar -->
+    <div class="bg-gradient-to-r from-black via-pulpCrimson to-black text-white text-xs font-mono py-2.5 px-4 text-center font-bold tracking-widest uppercase border-b border-pulpCrimson/50 flex flex-wrap justify-center items-center gap-3">
+        <span class="bg-black/60 px-2.5 py-0.5 rounded text-pulpGold border border-pulpGold/40 animate-pulse">PULP GAMING ALERT</span>
+        <span>PREPARING $150K KICKSTARTER CAMPAIGN</span>
+        <span class="hidden sm:inline text-pulpCrimson">•</span>
+        <a href="#support" class="underline hover:text-pulpGold transition-colors">SUPPORT STUDIO IMMEDIATELY ON GOFUNDME →</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="w-full max-w-7xl mx-auto px-6 py-5 flex justify-between items-center border-b border-pulpBorder/80">
+        <a href="#" class="flex items-center gap-2 group">
+            <span class="font-cinzel text-2xl font-black tracking-widest text-white group-hover:text-pulpCrimson transition-colors">PULP<span class="text-pulpCrimson">GAMING</span></span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-gray-400">
+            <a href="#hero" class="hover:text-pulpCrimson transition-colors">Overiew</a>
+            <a href="#poll" class="hover:text-pulpGold transition-colors">Director's Poll</a>
+            <a href="#demo" class="hover:text-pulpNeonCyan transition-colors">Prototype Hub</a>
+            <a href="#support" class="hover:text-pulpCrimson transition-colors">Dual Funding</a>
+            <a href="#budget" class="hover:text-white transition-colors">Budget</a>
+        </nav>
+        <a href="#support" class="font-bebas text-lg font-bold tracking-wider uppercase bg-pulpCrimson hover:bg-red-700 text-white px-5 py-1.5 rounded arcade-cabinet-border transition-all">
+            BACK PROJECT
+        </a>
+    </header>
+
+    <main class="flex-grow">
+        <!-- 2. Hero Section -->
+        <section id="hero" class="max-w-6xl mx-auto px-6 pt-16 pb-20 text-center relative">
+            <div class="inline-flex items-center gap-2 bg-pulpPanel border border-pulpGold/50 text-pulpGold font-mono text-xs px-4 py-1.5 rounded-full uppercase tracking-widest mb-6 neon-glow-gold">
+                <span class="w-2 h-2 rounded-full bg-pulpGold animate-ping"></span>
+                100% FREE GAME UPON FULL RELEASE
+            </div>
+            
+            <h1 class="font-cinzel text-5xl sm:text-7xl md:text-8xl font-black uppercase tracking-tight text-white mb-2 leading-none">
+                KOWLOON<span class="text-pulpCrimson text-glow-crimson">VANIA</span>
+            </h1>
+            
+            <p class="font-bebas text-2xl sm:text-3xl text-pulpGold tracking-widest uppercase mb-6 text-glow-gold">
+                A Delivery Into Darkness
+            </p>
+
+            <p class="font-mono text-sm sm:text-base text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed border-l-2 border-pulpCrimson pl-4 text-left sm:text-center sm:border-l-0 sm:pl-0">
+                A brutal, atmospheric 2D arcade gothic thriller set in a towering, rain-drenched walled city. 
+                Combining old-school pulp violence, tight mechanics, and pure passion. No paywalls. No corporate suits.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+                <a href="#demo" class="w-full sm:w-auto font-bebas text-2xl tracking-wider uppercase bg-pulpCrimson hover:bg-red-600 text-white px-8 py-3 rounded-lg arcade-cabinet-border neon-glow-red transition-all transform hover:-translate-y-0.5">
+                    🎮 PLAY PROTOTYPE DEMO
+                </a>
+                <a href="#support" class="w-full sm:w-auto font-bebas text-2xl tracking-wider uppercase bg-pulpPanel border border-pulpGold text-pulpGold hover:bg-pulpGold hover:text-black px-8 py-3 rounded-lg arcade-cabinet-border transition-all">
+                    ⚡ BACK ON GOFUNDME
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. The Director's Poll (Pulp Experiment) -->
+        <section id="poll" class="max-w-5xl mx-auto px-6 py-16">
+            <div class="bg-pulpPanel border-2 border-pulpBorder rounded-2xl p-6 sm:p-10 relative arcade-cabinet-border neon-glow-gold">
+                <div class="text-center max-w-xl mx-auto mb-10">
+                    <span class="font-mono text-xs text-pulpGold uppercase tracking-widest font-bold bg-pulpGold/10 px-3 py-1 rounded border border-pulpGold/30">Community Direction</span>
+                    <h2 class="font-bebas text-4xl sm:text-5xl font-bold uppercase text-white mt-3 mb-2 tracking-wide">
+                        THE DIRECTOR'S POLL <span class="text-pulpCrimson">(PULP EXPERIMENT)</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-gray-400 font-mono leading-relaxed">
+                        Cast your vote to shape the core design philosophy of Kowloonvania. Which gameplay lineage should lead production?
+                    </p>
+                </div>
+
+                <!-- Path Selection Form -->
+                <form id="pulpVoteForm" class="space-y-8" onsubmit="handlePulpVote(event)">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <!-- Path A Option -->
+                        <label class="relative block cursor-pointer group">
+                            <input type="radio" name="pulpPath" value="Path A: Classic Stage Action" class="peer sr-only" required>
+                            <div class="h-full p-6 rounded-xl border-2 border-pulpBorder bg-pulpBg peer-checked:border-pulpCrimson peer-checked:bg-pulpCrimson/10 transition-all group-hover:border-pulpCrimson/60 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex justify-between items-center mb-3">
+                                        <span class="font-bebas text-2xl font-bold text-pulpCrimson">PATH A</span>
+                                        <span class="font-mono text-[10px] text-gray-500 uppercase bg-black px-2 py-0.5 rounded border border-pulpBorder">Linear Arcade</span>
+                                    </div>
+                                    <h3 class="font-cinzel font-bold text-lg text-white mb-3">Classic Stage Action</h3>
+                                    <p class="font-mono text-xs text-gray-400 leading-relaxed mb-4">
+                                        In the spirit of <em>Castlevania X68000 & Bloodlines</em>. Razor-sharp linear stages, brutal enemy placements, tight jump commits, high tension, and pure arcade mastery.
+                                    </p>
+                                </div>
+                                <div class="font-mono text-[11px] text-pulpCrimson flex items-center gap-1 font-bold">
+                                    <span>SELECT PATH A</span> →
+                                </div>
+                            </div>
+                        </label>
+
+                        <!-- Path B Option -->
+                        <label class="relative block cursor-pointer group">
+                            <input type="radio" name="pulpPath" value="Path B: Exploration & RPG" class="peer sr-only">
+                            <div class="h-full p-6 rounded-xl border-2 border-pulpBorder bg-pulpBg peer-checked:border-pulpNeonCyan peer-checked:bg-pulpNeonCyan/10 transition-all group-hover:border-pulpNeonCyan/60 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex justify-between items-center mb-3">
+                                        <span class="font-bebas text-2xl font-bold text-pulpNeonCyan">PATH B</span>
+                                        <span class="font-mono text-[10px] text-gray-500 uppercase bg-black px-2 py-0.5 rounded border border-pulpBorder">Metroidvania</span>
+                                    </div>
+                                    <h3 class="font-cinzel font-bold text-lg text-white mb-3">Exploration & RPG</h3>
+                                    <p class="font-mono text-xs text-gray-400 leading-relaxed mb-4">
+                                        In the spirit of <em>Symphony of the Night</em>. Vast interconnected map through the Walled City, relic ability-gating, RPG stats, loot drops, and hidden secrets.
+                                    </p>
+                                </div>
+                                <div class="font-mono text-[11px] text-pulpNeonCyan flex items-center gap-1 font-bold">
+                                    <span>SELECT PATH B</span> →
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Email Input Block -->
+                    <div class="bg-pulpBg p-6 rounded-xl border border-pulpBorder flex flex-col sm:flex-row gap-4 items-end">
+                        <div class="w-full sm:w-2/3">
+                            <label for="pulpEmail" class="block font-mono text-xs text-pulpGold uppercase mb-2 font-bold">
+                                📧 Enter Your Email To Submit Vote & Get Launch Alerts
+                            </label>
+                            <input type="email" id="pulpEmail" required placeholder="pulp.gamer@domain.com" class="w-full bg-pulpPanel border border-pulpBorder rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-pulpGold font-mono">
+                        </div>
+                        <button type="submit" class="w-full sm:w-1/3 font-bebas text-xl font-bold uppercase tracking-wider bg-pulpGold hover:bg-yellow-400 text-black py-3 rounded transition-colors border border-pulpGold">
+                            CAST VOTE NOW ⚡
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Vote Confirmation Overlay -->
+                <div id="pulpVoteSuccess" class="hidden text-center py-10 bg-pulpBg border-2 border-pulpGold rounded-xl mt-6">
+                    <p class="font-bebas text-3xl text-pulpGold uppercase tracking-wide mb-2">✓ VOTE RECORDED IN PULP DATABASE!</p>
+                    <p class="font-mono text-xs text-gray-300 max-w-md mx-auto mb-4">
+                        Thank you for shaping Kowloonvania. You are officially on the insider prelaunch alert list.
+                    </p>
+                    <button onclick="openModal()" class="font-mono text-xs underline text-pulpNeonCyan hover:text-white">
+                        Click here to preview subscriber sequence modal
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Playable Prototype Hub -->
+        <section id="demo" class="max-w-5xl mx-auto px-6 py-12">
+            <div class="bg-pulpPanel border-2 border-pulpBorder rounded-2xl p-6 shadow-2xl arcade-cabinet-border">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-6 gap-2">
+                    <div>
+                        <span class="font-mono text-xs text-pulpCrimson font-bold uppercase tracking-widest">ARCADE TEST CHAMBER</span>
+                        <h3 class="font-bebas text-3xl text-white uppercase tracking-wide">PLAYABLE PROTOTYPE DEMO</h3>
+                    </div>
+                    <span class="font-mono text-xs bg-pulpCrimson/20 border border-pulpCrimson text-pulpCrimson px-3 py-1 rounded font-bold w-fit">
+                        BUILD v0.4.2 ONLINE
+                    </span>
+                </div>
+
+                <!-- Video Frame Simulation -->
+                <div class="relative w-full aspect-video bg-black rounded-xl overflow-hidden border-2 border-pulpBorder neon-glow-cyan">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Kowloonvania Prototype Gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <!-- Tech Specs & Itch Link -->
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
+                    <div class="bg-pulpBg p-4 rounded border border-pulpBorder">
+                        <span class="text-gray-500 block uppercase mb-1">Target Specs</span>
+                        <span class="text-white font-bold">60 FPS 2D Pixel Engine</span>
+                    </div>
+                    <div class="bg-pulpBg p-4 rounded border border-pulpBorder">
+                        <span class="text-gray-500 block uppercase mb-1">Input Support</span>
+                        <span class="text-white font-bold">Gamepad / Arcade Stick / KB</span>
+                    </div>
+                    <div class="bg-pulpBg p-4 rounded border border-pulpBorder flex flex-col justify-between">
+                        <span class="text-gray-500 block uppercase mb-1">Direct Download</span>
+                        <a href="https://itch.io" target="_blank" class="text-pulpNeonCyan font-bold hover:underline">
+                            LAUNCH ON ITCH.IO ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Dual-Funding Strategy Section -->
+        <section id="support" class="max-w-5xl mx-auto px-6 py-16">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="font-mono text-xs text-pulpCrimson uppercase tracking-widest font-bold">NO PUBLISHERS • 100% INDIE</span>
+                <h2 class="font-bebas text-4xl sm:text-5xl font-bold uppercase text-white mt-2">DUAL-FUNDING STRATEGY</h2>
+                <p class="font-mono text-xs text-gray-400 mt-2">
+                    How we keep Kowloonvania 100% free to play while maintaining full creative independence.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Kickstarter Card -->
+                <div class="bg-pulpPanel border-2 border-pulpBorder rounded-2xl p-6 sm:p-8 flex flex-col justify-between arcade-cabinet-border">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-mono text-xs font-bold text-pulpCrimson uppercase bg-pulpCrimson/10 px-3 py-1 rounded border border-pulpCrimson/30">PHASE 1 • PRELAUNCH</span>
+                            <span class="font-mono text-xs text-pulpGold font-bold">GOAL: $150,000</span>
+                        </div>
+                        <h3 class="font-cinzel font-bold text-xl text-white mb-3">Kickstarter Production</h3>
+                        <p class="font-mono text-xs text-gray-400 leading-relaxed mb-6">
+                            Funding full production assets: custom character animation, boss sprites, dark synth soundtrack, physical backer rewards, and multi-platform ports.
+                        </p>
+                    </div>
+                    <a href="#poll" class="font-bebas text-xl text-center uppercase tracking-wider bg-pulpCrimson text-white hover:bg-red-600 py-2.5 rounded transition-colors arcade-cabinet-border">
+                        GET PRELAUNCH ALERT →
+                    </a>
+                </div>
+
+                <!-- GoFundMe Card -->
+                <div class="bg-pulpPanel border-2 border-pulpGold rounded-2xl p-6 sm:p-8 flex flex-col justify-between arcade-cabinet-border neon-glow-gold">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-mono text-xs font-bold text-pulpGold uppercase bg-pulpGold/10 px-3 py-1 rounded border border-pulpGold/30">PHASE 2 • LIVE NOW</span>
+                            <span class="font-mono text-xs text-pulpNeonCyan font-bold">DIRECT STUDIO SUPPORT</span>
+                        </div>
+                        <h3 class="font-cinzel font-bold text-xl text-white mb-3">GoFundMe Studio Operations</h3>
+                        <p class="font-mono text-xs text-gray-400 leading-relaxed mb-6">
+                            Supports immediate baseline studio hardware, software licenses, dev kit testing, and prototype updates while preparing the main campaign.
+                        </p>
+                    </div>
+                    <a href="https://gofundme.com" target="_blank" class="font-bebas text-xl text-center uppercase tracking-wider bg-pulpGold text-black hover:bg-yellow-400 py-2.5 rounded transition-colors font-bold">
+                        BACK US ON GOFUNDME ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Transparent $150K Kickstarter Budget Allocation -->
+        <section id="budget" class="max-w-4xl mx-auto px-6 py-16">
+            <div class="bg-pulpPanel border-2 border-pulpBorder rounded-2xl p-6 sm:p-8 arcade-cabinet-border">
+                <div class="text-center mb-8">
+                    <span class="font-mono text-xs text-pulpGold uppercase tracking-widest font-bold">FULL TRANSPARENCY</span>
+                    <h3 class="font-bebas text-3xl font-bold uppercase text-white mt-1">TRANSPARENT $150K BUDGET BREAKDOWN</h3>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left font-mono text-xs">
+                        <thead>
+                            <tr class="border-b-2 border-pulpBorder text-pulpGold uppercase">
+                                <th class="pb-3">Category</th>
+                                <th class="pb-3">Allocation</th>
+                                <th class="pb-3">Production Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-pulpBorder/60 text-gray-300">
+                            <tr>
+                                <td class="py-3.5 font-bold text-white">Platform & Processing Fees</td>
+                                <td class="py-3.5 text-pulpCrimson font-bold">$12,000 (8%)</td>
+                                <td class="py-3.5 text-gray-400">Kickstarter platform & credit card processing fees</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 font-bold text-white">Core Creator Compensation</td>
+                                <td class="py-3.5 text-pulpCrimson font-bold">$36,000 (24%)</td>
+                                <td class="py-3.5 text-gray-400">Fair labor pay for full-time project director & level leads</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 font-bold text-white">Programming & Systems</td>
+                                <td class="py-3.5 text-pulpCrimson font-bold">$20,000 (13%)</td>
+                                <td class="py-3.5 text-gray-400">Boss AI code, physics tuning, cross-platform engine work</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 font-bold text-white">Art & Animation</td>
+                                <td class="py-3.5 text-pulpCrimson font-bold">$20,000 (13%)</td>
+                                <td class="py-3.5 text-gray-400">Custom sprite sheets, frame-by-frame background layers</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 font-bold text-white">Contingency Reserve</td>
+                                <td class="py-3.5 text-pulpCrimson font-bold">$25,000 (17%)</td>
+                                <td class="py-3.5 text-gray-400">Risk mitigation buffer for unexpected technical delays</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 font-bold text-white">Design, Audio, QA & Admin</td>
+                                <td class="py-3.5 text-pulpCrimson font-bold">$37,000 (25%)</td>
+                                <td class="py-3.5 text-gray-400">Dark synth music, sound FX, playtesting & legal compliance</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 7. Email Sequence Preview Modal -->
+    <div id="emailModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-pulpPanel border-2 border-pulpGold max-w-lg w-full rounded-2xl p-6 arcade-cabinet-border relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white font-mono text-sm">✕ CLOSE</button>
+            
+            <div class="mb-4">
+                <span class="font-mono text-xs text-pulpGold font-bold uppercase">SUBSCRIBER PREVIEW SEQUENCE</span>
+                <h4 class="font-bebas text-2xl text-white uppercase mt-1">WELCOME TO THE PULP UNDERGROUND</h4>
+            </div>
+
+            <div class="bg-pulpBg p-4 rounded border border-pulpBorder font-mono text-xs space-y-3 text-gray-300 mb-6">
+                <p class="text-pulpGold font-bold">SUBJECT: [Kowloonvania] Vote Confirmed + Prototype Key Inside</p>
+                <p>Hello Courier,</p>
+                <p>Your vote has been logged into the core design ledger for Kowloonvania. Here is what happens next:</p>
+                <ul class="list-disc pl-4 space-y-1 text-gray-400">
+                    <li>Monthly behind-the-scenes sprite updates</li>
+                    <li>Direct link to closed playtest builds</li>
+                    <li>Exclusive 24-hour early access to the $150K Kickstarter backer tiers</li>
+                </ul>
+            </div>
+
+            <button onclick="closeModal()" class="w-full font-bebas text-lg font-bold bg-pulpGold hover:bg-yellow-400 text-black py-2.5 rounded transition-colors">
+                GOT IT
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-pulpBorder/80 py-10 bg-pulpBg">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <p class="font-cinzel font-black text-xl text-white">PULP<span class="text-pulpCrimson">GAMING</span></p>
+                <p class="font-mono text-xs text-gray-500 mt-1">© 2026 Kowloonvania. Pure Pulp Action Game Project.</p>
+            </div>
+            <div class="flex gap-6 font-mono text-xs text-gray-400">
+                <a href="https://itch.io" target="_blank" class="hover:text-pulpNeonCyan transition-colors">Itch.io Demo</a>
+                <a href="https://gofundme.com" target="_blank" class="hover:text-pulpGold transition-colors">GoFundMe</a>
+                <a href="https://kickstarter.com" target="_blank" class="hover:text-pulpCrimson transition-colors">Kickstarter Prelaunch</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handlePulpVote(event) {
+            event.preventDefault();
+            const email = document.getElementById('pulpEmail').value;
+            const selected = document.querySelector('input[name="pulpPath"]:checked');
+
+            if (!selected) {
+                alert('Please select either Path A or Path B to cast your vote.');
+                return;
+            }
+
+            // Hide form and reveal confirmation
+            document.getElementById('pulpVoteForm').classList.add('hidden');
+            document.getElementById('pulpVoteSuccess').classList.remove('hidden');
+        }
+
+        function openModal() {
+            document.getElementById('emailModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('emailModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
