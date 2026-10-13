@@ -127,33 +127,40 @@
     </header>
 
     <main class="flex-grow">
-        <!-- 2. Hero Section -->
-        <section id="hero" class="max-w-6xl mx-auto px-6 pt-16 pb-20 text-center relative">
-            <div class="inline-flex items-center gap-2 bg-pulpPanel border border-pulpGold/50 text-pulpGold font-mono text-xs px-4 py-1.5 rounded-full uppercase tracking-widest mb-6 neon-glow-gold">
-                <span class="w-2 h-2 rounded-full bg-pulpGold animate-ping"></span>
-                100% FREE GAME UPON FULL RELEASE
+        <!-- 2. Hero Section with Layered Animated Background & WebP Logo Replacement -->
+        <section id="hero" class="max-w-5xl mx-auto px-6 pt-12 pb-20 text-center relative rounded-2xl overflow-hidden my-8 arcade-cabinet-border neon-glow-red">
+            
+            <!-- LAYER 1: The Animated GIF Background with Dark Gradient Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="kowloonvania_intro.gif" alt="Kowloonvania Animated Background" class="w-full h-full object-cover opacity-50">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#08080a] via-[#08080a]/80 to-[#08080a]/40"></div>
             </div>
-            
-            <h1 class="font-cinzel text-5xl sm:text-7xl md:text-8xl font-black uppercase tracking-tight text-white mb-2 leading-none">
-                KOWLOON<span class="text-pulpCrimson text-glow-crimson">VANIA</span>
-            </h1>
-            
-            <p class="font-bebas text-2xl sm:text-3xl text-pulpGold tracking-widest uppercase mb-6 text-glow-gold">
-                A Delivery Into Darkness
-            </p>
 
-            <p class="font-mono text-sm sm:text-base text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed border-l-2 border-pulpCrimson pl-4 text-left sm:text-center sm:border-l-0 sm:pl-0">
-                A brutal, atmospheric 2D arcade gothic thriller set in a towering, rain-drenched walled city. 
-                Combining old-school pulp violence, tight mechanics, and pure passion. No paywalls. No corporate suits.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
-                <a href="#demo" class="w-full sm:w-auto font-bebas text-2xl tracking-wider uppercase bg-pulpCrimson hover:bg-red-600 text-white px-8 py-3 rounded-lg arcade-cabinet-border neon-glow-red transition-all transform hover:-translate-y-0.5">
-                    🎮 PLAY PROTOTYPE DEMO
-                </a>
-                <a href="#support" class="w-full sm:w-auto font-bebas text-2xl tracking-wider uppercase bg-pulpPanel border border-pulpGold text-pulpGold hover:bg-pulpGold hover:text-black px-8 py-3 rounded-lg arcade-cabinet-border transition-all">
-                    ⚡ BACK ON GOFUNDME
-                </a>
+            <!-- LAYER 2: Foreground Content (WebP Logo, Description, & Buttons Floating on Top) -->
+            <div class="relative z-10 max-w-3xl mx-auto pt-6">
+                <div class="inline-flex items-center gap-2 bg-pulpPanel/90 border border-pulpGold/50 text-pulpGold font-mono text-xs px-4 py-1.5 rounded-full uppercase tracking-widest mb-6 neon-glow-gold backdrop-blur-sm">
+                    <span class="w-2 h-2 rounded-full bg-pulpGold animate-ping"></span>
+                    100% FREE GAME UPON FULL RELEASE
+                </div>
+                
+                <!-- WebP Logo Replacing the Text Heading -->
+                <div class="mb-6 flex justify-center">
+                    <img src="logo_front_Kowloonvania.webp" alt="Kowloonvania Logo" class="w-full max-w-xl h-auto object-contain drop-shadow-[0_0_20px_rgba(255,0,60,0.6)]">
+                </div>
+
+                <p class="font-mono text-sm sm:text-base text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed border-l-2 border-pulpCrimson pl-4 text-left sm:text-center sm:border-l-0 sm:pl-0 bg-black/60 p-4 rounded backdrop-blur-md">
+                    A brutal, atmospheric 2D arcade gothic thriller set in a towering, rain-drenched walled city. 
+                    Combining old-school pulp violence, tight mechanics, and pure passion. No paywalls. No corporate suits.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+                    <a href="#demo" class="w-full sm:w-auto font-bebas text-2xl tracking-wider uppercase bg-pulpCrimson hover:bg-red-600 text-white px-8 py-3 rounded-lg arcade-cabinet-border neon-glow-red transition-all transform hover:-translate-y-0.5">
+                        🎮 PLAY PROTOTYPE DEMO
+                    </a>
+                    <a href="#support" class="w-full sm:w-auto font-bebas text-2xl tracking-wider uppercase bg-pulpPanel border border-pulpGold text-pulpGold hover:bg-pulpGold hover:text-black px-8 py-3 rounded-lg arcade-cabinet-border transition-all">
+                        ⚡ BACK ON GOFUNDME
+                    </a>
+                </div>
             </div>
         </section>
 
