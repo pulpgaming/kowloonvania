@@ -115,7 +115,7 @@
             <span class="font-cinzel text-2xl font-black tracking-widest text-white group-hover:text-pulpCrimson transition-colors">PULP<span class="text-pulpCrimson">GAMING</span></span>
         </a>
         <nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-gray-400">
-            <a href="#hero" class="hover:text-pulpCrimson transition-colors">Overiew</a>
+            <a href="#hero" class="hover:text-pulpCrimson transition-colors">Overview</a>
             <a href="#poll" class="hover:text-pulpGold transition-colors">Director's Poll</a>
             <a href="#demo" class="hover:text-pulpNeonCyan transition-colors">Prototype Hub</a>
             <a href="#support" class="hover:text-pulpCrimson transition-colors">Dual Funding</a>
@@ -157,87 +157,34 @@
             </div>
         </section>
 
-        <!-- 3. The Director's Poll (Pulp Experiment) -->
+        <!-- 3. The Director's Poll (Live Tally.so Integration) -->
         <section id="poll" class="max-w-5xl mx-auto px-6 py-16">
             <div class="bg-pulpPanel border-2 border-pulpBorder rounded-2xl p-6 sm:p-10 relative arcade-cabinet-border neon-glow-gold">
-                <div class="text-center max-w-xl mx-auto mb-10">
+                <div class="text-center max-w-xl mx-auto mb-8">
                     <span class="font-mono text-xs text-pulpGold uppercase tracking-widest font-bold bg-pulpGold/10 px-3 py-1 rounded border border-pulpGold/30">Community Direction</span>
                     <h2 class="font-bebas text-4xl sm:text-5xl font-bold uppercase text-white mt-3 mb-2 tracking-wide">
                         THE DIRECTOR'S POLL <span class="text-pulpCrimson">(PULP EXPERIMENT)</span>
                     </h2>
                     <p class="text-xs sm:text-sm text-gray-400 font-mono leading-relaxed">
-                        Cast your vote to shape the core design philosophy of Kowloonvania. Which gameplay lineage should lead production?
+                        Cast your vote below to shape the core design philosophy of Kowloonvania. All data and emails sync directly to the developer ledger.
                     </p>
                 </div>
 
-                <!-- Path Selection Form -->
-                <form id="pulpVoteForm" class="space-y-8" onsubmit="handlePulpVote(event)">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        
-                        <!-- Path A Option -->
-                        <label class="relative block cursor-pointer group">
-                            <input type="radio" name="pulpPath" value="Path A: Classic Stage Action" class="peer sr-only" required>
-                            <div class="h-full p-6 rounded-xl border-2 border-pulpBorder bg-pulpBg peer-checked:border-pulpCrimson peer-checked:bg-pulpCrimson/10 transition-all group-hover:border-pulpCrimson/60 flex flex-col justify-between">
-                                <div>
-                                    <div class="flex justify-between items-center mb-3">
-                                        <span class="font-bebas text-2xl font-bold text-pulpCrimson">PATH A</span>
-                                        <span class="font-mono text-[10px] text-gray-500 uppercase bg-black px-2 py-0.5 rounded border border-pulpBorder">Linear Arcade</span>
-                                    </div>
-                                    <h3 class="font-cinzel font-bold text-lg text-white mb-3">Classic Stage Action</h3>
-                                    <p class="font-mono text-xs text-gray-400 leading-relaxed mb-4">
-                                        In the spirit of <em>Castlevania X68000 & Bloodlines</em>. Razor-sharp linear stages, brutal enemy placements, tight jump commits, high tension, and pure arcade mastery.
-                                    </p>
-                                </div>
-                                <div class="font-mono text-[11px] text-pulpCrimson flex items-center gap-1 font-bold">
-                                    <span>SELECT PATH A</span> →
-                                </div>
-                            </div>
-                        </label>
-
-                        <!-- Path B Option -->
-                        <label class="relative block cursor-pointer group">
-                            <input type="radio" name="pulpPath" value="Path B: Exploration & RPG" class="peer sr-only">
-                            <div class="h-full p-6 rounded-xl border-2 border-pulpBorder bg-pulpBg peer-checked:border-pulpNeonCyan peer-checked:bg-pulpNeonCyan/10 transition-all group-hover:border-pulpNeonCyan/60 flex flex-col justify-between">
-                                <div>
-                                    <div class="flex justify-between items-center mb-3">
-                                        <span class="font-bebas text-2xl font-bold text-pulpNeonCyan">PATH B</span>
-                                        <span class="font-mono text-[10px] text-gray-500 uppercase bg-black px-2 py-0.5 rounded border border-pulpBorder">Metroidvania</span>
-                                    </div>
-                                    <h3 class="font-cinzel font-bold text-lg text-white mb-3">Exploration & RPG</h3>
-                                    <p class="font-mono text-xs text-gray-400 leading-relaxed mb-4">
-                                        In the spirit of <em>Symphony of the Night</em>. Vast interconnected map through the Walled City, relic ability-gating, RPG stats, loot drops, and hidden secrets.
-                                    </p>
-                                </div>
-                                <div class="font-mono text-[11px] text-pulpNeonCyan flex items-center gap-1 font-bold">
-                                    <span>SELECT PATH B</span> →
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-
-                    <!-- Email Input Block -->
-                    <div class="bg-pulpBg p-6 rounded-xl border border-pulpBorder flex flex-col sm:flex-row gap-4 items-end">
-                        <div class="w-full sm:w-2/3">
-                            <label for="pulpEmail" class="block font-mono text-xs text-pulpGold uppercase mb-2 font-bold">
-                                📧 Enter Your Email To Submit Vote & Get Launch Alerts
-                            </label>
-                            <input type="email" id="pulpEmail" required placeholder="pulp.gamer@domain.com" class="w-full bg-pulpPanel border border-pulpBorder rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-pulpGold font-mono">
-                        </div>
-                        <button type="submit" class="w-full sm:w-1/3 font-bebas text-xl font-bold uppercase tracking-wider bg-pulpGold hover:bg-yellow-400 text-black py-3 rounded transition-colors border border-pulpGold">
-                            CAST VOTE NOW ⚡
-                        </button>
-                    </div>
-                </form>
-
-                <!-- Vote Confirmation Overlay -->
-                <div id="pulpVoteSuccess" class="hidden text-center py-10 bg-pulpBg border-2 border-pulpGold rounded-xl mt-6">
-                    <p class="font-bebas text-3xl text-pulpGold uppercase tracking-wide mb-2">✓ VOTE RECORDED IN PULP DATABASE!</p>
-                    <p class="font-mono text-xs text-gray-300 max-w-md mx-auto mb-4">
-                        Thank you for shaping Kowloonvania. You are officially on the insider prelaunch alert list.
-                    </p>
-                    <button onclick="openModal()" class="font-mono text-xs underline text-pulpNeonCyan hover:text-white">
-                        Click here to preview subscriber sequence modal
-                    </button>
+                <!-- REAL LIVE TALLY.SO EMBED -->
+                <div class="w-full bg-black/40 border border-pulpBorder rounded-xl p-4">
+                    <iframe 
+                        data-tally-src="https://tally.so/embed/9qLjlp?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                        loading="lazy" 
+                        width="100%" 
+                        height="400" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        title="Director's Poll">
+                    </iframe>
+                    <script>
+                        var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+                    </script>
                 </div>
             </div>
         </section>
@@ -382,33 +329,6 @@
         </section>
     </main>
 
-    <!-- 7. Email Sequence Preview Modal -->
-    <div id="emailModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-pulpPanel border-2 border-pulpGold max-w-lg w-full rounded-2xl p-6 arcade-cabinet-border relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white font-mono text-sm">✕ CLOSE</button>
-            
-            <div class="mb-4">
-                <span class="font-mono text-xs text-pulpGold font-bold uppercase">SUBSCRIBER PREVIEW SEQUENCE</span>
-                <h4 class="font-bebas text-2xl text-white uppercase mt-1">WELCOME TO THE PULP UNDERGROUND</h4>
-            </div>
-
-            <div class="bg-pulpBg p-4 rounded border border-pulpBorder font-mono text-xs space-y-3 text-gray-300 mb-6">
-                <p class="text-pulpGold font-bold">SUBJECT: [Kowloonvania] Vote Confirmed + Prototype Key Inside</p>
-                <p>Hello Courier,</p>
-                <p>Your vote has been logged into the core design ledger for Kowloonvania. Here is what happens next:</p>
-                <ul class="list-disc pl-4 space-y-1 text-gray-400">
-                    <li>Monthly behind-the-scenes sprite updates</li>
-                    <li>Direct link to closed playtest builds</li>
-                    <li>Exclusive 24-hour early access to the $150K Kickstarter backer tiers</li>
-                </ul>
-            </div>
-
-            <button onclick="closeModal()" class="w-full font-bebas text-lg font-bold bg-pulpGold hover:bg-yellow-400 text-black py-2.5 rounded transition-colors">
-                GOT IT
-            </button>
-        </div>
-    </div>
-
     <!-- Footer Section -->
     <footer class="border-t border-pulpBorder/80 py-10 bg-pulpBg">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -423,30 +343,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        function handlePulpVote(event) {
-            event.preventDefault();
-            const email = document.getElementById('pulpEmail').value;
-            const selected = document.querySelector('input[name="pulpPath"]:checked');
-
-            if (!selected) {
-                alert('Please select either Path A or Path B to cast your vote.');
-                return;
-            }
-
-            // Hide form and reveal confirmation
-            document.getElementById('pulpVoteForm').classList.add('hidden');
-            document.getElementById('pulpVoteSuccess').classList.remove('hidden');
-        }
-
-        function openModal() {
-            document.getElementById('emailModal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('emailModal').classList.add('hidden');
-        }
-    </script>
 </body>
 </html>
