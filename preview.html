@@ -46,9 +46,6 @@
         .neon-border-red {
             box-shadow: 0 0 15px rgba(255, 0, 60, 0.25);
         }
-        .neon-border-cyan {
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
-        }
     </style>
 </head>
 <body class="h-full bg-pulpDark text-gray-300 font-mono flex flex-col justify-between p-3 sm:p-6 overflow-x-hidden">
@@ -56,8 +53,8 @@
     <!-- MAIN APP CONTAINER -->
     <div class="max-w-4xl mx-auto w-full bg-pulpPanel border-2 border-pulpBorder rounded-xl neon-border-red overflow-hidden flex flex-col my-auto shadow-2xl">
         
-        <!-- HEADER CONTROL BAR WITH TOGGLE SWITCH -->
-        <header class="bg-black/80 border-b-2 border-pulpBorder p-4 sm:p-5 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <!-- HEADER TITLE BAR (WITHOUT TOGGLE) -->
+        <header class="bg-black/80 border-b-2 border-pulpBorder p-4 sm:p-5 flex justify-between items-center gap-4">
             <div class="flex items-center gap-3">
                 <span class="inline-block w-3 h-3 rounded-full bg-pulpCrimson animate-ping"></span>
                 <div>
@@ -65,198 +62,174 @@
                         <span>PULP FUND</span>
                         <span class="text-xs text-pulpGold bg-pulpCrimson/20 border border-pulpCrimson px-2 py-0.5 rounded">PHASE 1</span>
                     </h1>
-                    <p class="text-xs text-gray-400">Kickstarter Campaign Preview &amp; Exporter</p>
+                    <p class="text-xs text-gray-400">Kickstarter Campaign Preview Deck</p>
                 </div>
             </div>
-
-            <!-- TOGGLE TAB BUTTONS -->
-            <div class="inline-flex bg-pulpDark border border-pulpBorder rounded-lg p-1 w-full sm:w-auto">
-                <button id="btn-visual" onclick="setMode('visual')" class="flex-1 sm:flex-none px-4 py-2 text-xs font-bold rounded-md transition-all duration-200 flex items-center justify-center gap-2 bg-pulpCrimson text-white shadow-md">
-                    <span>👁️</span> VISUAL PREVIEW
-                </button>
-                <button id="btn-code" onclick="setMode('code')" class="flex-1 sm:flex-none px-4 py-2 text-xs font-bold rounded-md transition-all duration-200 flex items-center justify-center gap-2 text-gray-400 hover:text-white">
-                    <span>💻</span> SOURCE CODE
-                </button>
-            </div>
+            <a href="index.html" class="text-xs bg-pulpDark hover:bg-pulpBorder text-gray-300 px-3 py-1.5 rounded border border-pulpBorder transition-colors">
+                ← BACK TO HOME
+            </a>
         </header>
 
         <!-- CONTENT PANEL -->
-        <main class="p-4 sm:p-8 overflow-y-auto max-h-[75vh]">
+        <main class="p-4 sm:p-8 overflow-y-auto max-h-[75vh] space-y-6">
             
-            <!-- VIEW 1: VISUAL PREVIEW MODE -->
-            <div id="view-visual" class="space-y-6">
-                
-                <!-- Announcement Banner -->
-                <div class="bg-gradient-to-r from-black via-pulpCrimson/40 to-black border-y-2 border-pulpCrimson p-3 text-center rounded-md">
-                    <span class="bg-black text-pulpGold font-bold px-2 py-1 rounded text-xs border border-pulpGold mr-2">PULP GAMING ALERT</span>
-                    <span class="text-white font-bold text-xs sm:text-sm tracking-widest uppercase">PHASE 1 STARTUP &amp; STUDIO INFRASTRUCTURE</span>
-                </div>
-
-                <!-- Section 1: Disclosure -->
-                <section class="space-y-2 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
-                    <h2 class="text-pulpCrimson font-bold text-base sm:text-xl uppercase border-b border-pulpCrimson/50 pb-2 flex items-center gap-2">
-                        <span>⚠️</span> FULL DISCLOSURE: WHAT IS THIS FARCE?
-                    </h2>
-                    <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
-                        Let’s get one thing straight: the Frankenstein tech demo you just played is a total red herring. It’s a cobbled-together tech-joke designed purely to trick you into clicking so we could reel you in. Far from a polished "love letter," that rough-around-the-edges experiment is just our blunt-force way of proving we have a pulse.
-                    </p>
-                </section>
-
-                <!-- Section 2: Real Mission -->
-                <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
-                    <h2 class="text-pulpGold font-bold text-base sm:text-xl uppercase border-b border-pulpGold/50 pb-2 flex items-center gap-2">
-                        <span>🧟</span> HELP US BUILD THE REAL MONSTER (THE PULP FUND)
-                    </h2>
-                    <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
-                        Jokes aside, our actual dream is dead serious: we want to forge a gorgeous, hard-hitting, genuine homage to Konami’s <em class="text-white italic">Castlevania</em> and the gritty labyrinth of the Kowloon Walled City. No corporate suits. No paywalls. Just a 100% free game built by paid professionals who actually care.
-                    </p>
-                    <div class="p-3 sm:p-4 bg-pulpPanel border-l-4 border-pulpGold rounded-r-md italic text-white text-xs sm:text-sm">
-                        "Look, we built this joke of a demo with our bare hands, but we're comically begging for your help to bring the real beast to life."
-                    </div>
-                </section>
-
-                <!-- Section 3: Roadmap -->
-                <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
-                    <h3 class="text-pulpCyan font-bold text-sm sm:text-lg uppercase border-b border-pulpCyan/50 pb-2 flex items-center gap-2">
-                        <span>🗺️</span> THE TWO-PHASE ROADMAP
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
-                        <div class="bg-pulpPanel p-4 rounded-lg border border-pulpCrimson/50 space-y-2">
-                            <div class="text-pulpCrimson font-bold uppercase flex items-center justify-between">
-                                <span>PHASE 1 (LIVE NOW)</span>
-                                <span class="text-xs bg-pulpCrimson text-white px-2 py-0.5 rounded">$10,000</span>
-                            </div>
-                            <p class="font-bold text-white">Studio Startup &amp; Non-Profit Formation</p>
-                            <p class="text-gray-400 text-xs">Funding our legal non-profit setup (PULP Fund) and workstation baseline while you vote on core mechanics in our Director's Poll.</p>
-                        </div>
-                        <div class="bg-pulpPanel p-4 rounded-lg border border-pulpCyan/50 space-y-2">
-                            <div class="text-pulpCyan font-bold uppercase flex items-center justify-between">
-                                <span>PHASE 2 (COMING SOON)</span>
-                                <span class="text-xs bg-pulpCyan/20 text-pulpCyan px-2 py-0.5 rounded border border-pulpCyan">$150,000</span>
-                            </div>
-                            <p class="font-bold text-white">Full Kowloonvania Kickstarter</p>
-                            <p class="text-gray-400 text-xs">Launching our flagship production campaign calibrated directly from Phase 1 poll data to fund full art, music, boss AI, and ports.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Section 4: Budget -->
-                <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
-                    <h3 class="text-pulpGold font-bold text-sm sm:text-lg uppercase border-b border-pulpGold/50 pb-2 flex items-center gap-2">
-                        <span>📊</span> TRANSPARENT $10,000 BUDGET BREAKDOWN
-                    </h3>
-                    <div class="space-y-2 text-xs sm:text-sm">
-                        <!-- Progress Bar Visual -->
-                        <div class="h-4 w-full bg-pulpDark rounded-full overflow-hidden flex border border-pulpBorder my-2">
-                            <div class="bg-pulpCrimson h-full" style="width: 45%" title="45% Non-Profit Legal"></div>
-                            <div class="bg-pulpGold h-full" style="width: 25%" title="25% Studio Infrastructure"></div>
-                            <div class="bg-pulpCyan h-full" style="width: 20%" title="20% Production Labor"></div>
-                            <div class="bg-gray-600 h-full" style="width: 10%" title="10% Fees"></div>
-                        </div>
-
-                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-2">
-                            <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
-                                <span class="w-3 h-3 rounded-full bg-pulpCrimson inline-block"></span>
-                                <div>
-                                    <span class="text-white font-bold">Non-Profit Legal:</span>
-                                    <span class="text-pulpCrimson font-bold ml-1">$4,500 (45%)</span>
-                                    <p class="text-[10px] text-gray-400">CA state filing &amp; IRS 501(c)(3) setup</p>
-                                </div>
-                            </li>
-                            <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
-                                <span class="w-3 h-3 rounded-full bg-pulpGold inline-block"></span>
-                                <div>
-                                    <span class="text-white font-bold">Studio Infrastructure:</span>
-                                    <span class="text-pulpGold font-bold ml-1">$2,500 (25%)</span>
-                                    <p class="text-[10px] text-gray-400">Workstations, backups, dev tools</p>
-                                </div>
-                            </li>
-                            <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
-                                <span class="w-3 h-3 rounded-full bg-pulpCyan inline-block"></span>
-                                <div>
-                                    <span class="text-white font-bold">Kowloonvania Labor:</span>
-                                    <span class="text-pulpCyan font-bold ml-1">$2,000 (20%)</span>
-                                    <p class="text-[10px] text-gray-400">Initial code and art cycle pay</p>
-                                </div>
-                            </li>
-                            <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
-                                <span class="w-3 h-3 rounded-full bg-gray-600 inline-block"></span>
-                                <div>
-                                    <span class="text-white font-bold">Platform &amp; Processing:</span>
-                                    <span class="text-gray-300 font-bold ml-1">$1,000 (10%)</span>
-                                    <p class="text-[10px] text-gray-400">Kickstarter platform &amp; Stripe fees</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Section 5: Tiers -->
-                <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
-                    <h2 class="text-pulpCyan font-bold text-base sm:text-xl uppercase border-b border-pulpCyan/50 pb-2 flex items-center gap-2">
-                        <span>🎁</span> BACKER REWARD TIERS
-                    </h2>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
-                        <!-- Tier 1 -->
-                        <div class="bg-pulpPanel p-3.5 rounded-lg border border-pulpBorder hover:border-pulpGold transition-colors">
-                            <div class="flex justify-between items-center mb-1">
-                                <span class="text-pulpGold font-bold">TIER 1: $10</span>
-                                <span class="text-[10px] text-gray-400 uppercase tracking-widest">Operative</span>
-                            </div>
-                            <p class="text-white font-bold text-xs">The Arcade Operative</p>
-                            <p class="text-gray-400 text-xs mt-1">Digital credits listing + behind-the-scenes dev logs &amp; code snippets.</p>
-                        </div>
-
-                        <!-- Tier 2 -->
-                        <div class="bg-pulpPanel p-3.5 rounded-lg border border-pulpBorder hover:border-pulpGold transition-colors">
-                            <div class="flex justify-between items-center mb-1">
-                                <span class="text-pulpGold font-bold">TIER 2: $25</span>
-                                <span class="text-[10px] text-gray-400 uppercase tracking-widest">Blueprint</span>
-                            </div>
-                            <p class="text-white font-bold text-xs">The Blueprint Backer</p>
-                            <p class="text-gray-400 text-xs mt-1">Tier 1 + Director's Poll voting rights on mechanics &amp; gothic wallpaper pack.</p>
-                        </div>
-
-                        <!-- Tier 3 -->
-                        <div class="bg-pulpPanel p-3.5 rounded-lg border border-pulpBorder hover:border-pulpGold transition-colors">
-                            <div class="flex justify-between items-center mb-1">
-                                <span class="text-pulpGold font-bold">TIER 3: $50</span>
-                                <span class="text-[10px] text-gray-400 uppercase tracking-widest">Producer</span>
-                            </div>
-                            <p class="text-white font-bold text-xs">The Producer’s Circle</p>
-                            <p class="text-gray-400 text-xs mt-1">Tier 2 + name on in-game "Pulp Pioneers" plaque + private Discord server access.</p>
-                        </div>
-
-                        <!-- Tier 4 -->
-                        <div class="bg-pulpPanel p-3.5 rounded-lg border border-pulpBorder hover:border-pulpGold transition-colors">
-                            <div class="flex justify-between items-center mb-1">
-                                <span class="text-pulpGold font-bold">TIER 4: $100+</span>
-                                <span class="text-[10px] text-gray-400 uppercase tracking-widest">Architect</span>
-                            </div>
-                            <p class="text-white font-bold text-xs">The Core Architect</p>
-                            <p class="text-gray-400 text-xs mt-1">Tier 3 + direct input eligibility for future PULP Fund grants + prototype source assets.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Footer Tag -->
-                <div class="text-center pt-4 border-t border-pulpBorder text-pulpCrimson font-bold uppercase tracking-widest text-xs sm:text-sm">
-                    Don't leave us hanging. Just pure pulp action.
-                </div>
-
+            <!-- Announcement Banner -->
+            <div class="bg-gradient-to-r from-black via-pulpCrimson/40 to-black border-y-2 border-pulpCrimson p-3 text-center rounded-md">
+                <span class="bg-black text-pulpGold font-bold px-2 py-1 rounded text-xs border border-pulpGold mr-2">PULP GAMING ALERT</span>
+                <span class="text-white font-bold text-xs sm:text-sm tracking-widest uppercase">PHASE 1 STARTUP &amp; STUDIO INFRASTRUCTURE</span>
             </div>
 
-            <!-- VIEW 2: SOURCE CODE EXPORTER MODE -->
-            <div id="view-code" class="hidden space-y-4">
-                <div class="flex justify-between items-center bg-black/60 p-3 rounded-md border border-pulpBorder">
-                    <span class="text-xs text-pulpCyan font-bold">📋 KICKSTARTER CAMPAIGN COPY (HTML / MARKDOWN READY)</span>
-                    <button onclick="copySourceCode()" class="bg-pulpCyan text-black font-bold text-xs px-3 py-1.5 rounded hover:bg-white transition-colors flex items-center gap-1">
-                        <span id="copy-icon">📄</span> <span id="copy-text">COPY CODE</span>
-                    </button>
-                </div>
+            <!-- Section 1: Disclosure -->
+            <section class="space-y-2 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h2 class="text-pulpCrimson font-bold text-base sm:text-xl uppercase border-b border-pulpCrimson/50 pb-2 flex items-center gap-2">
+                    <span>⚠️</span> FULL DISCLOSURE: WHAT IS THIS FARCE?
+                </h2>
+                <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
+                    Let’s get one thing straight: the Frankenstein tech demo you just played is a total red herring. It’s a cobbled-together tech-joke designed purely to trick you into clicking so we could reel you in. Far from a polished "love letter," that rough-around-the-edges experiment is just our blunt-force way of proving we have a pulse.
+                </p>
+            </section>
 
-                <textarea id="code-output" readonly class="w-full h-96 bg-black text-pulpCyan font-mono text-xs p-4 rounded-lg border border-pulpBorder focus:outline-none focus:border-pulpCyan resize-none leading-relaxed"></textarea>
+            <!-- Section 2: Real Mission -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h2 class="text-pulpGold font-bold text-base sm:text-xl uppercase border-b border-pulpGold/50 pb-2 flex items-center gap-2">
+                    <span>🧟</span> HELP US BUILD THE REAL MONSTER (THE PULP FUND)
+                </h2>
+                <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
+                    Jokes aside, our actual dream is dead serious: we want to forge a gorgeous, hard-hitting, genuine homage to Konami’s <em class="text-white italic">Castlevania</em> and the gritty labyrinth of the Kowloon Walled City. No corporate suits. No paywalls. Just a 100% free game built by paid professionals who actually care.
+                </p>
+                <div class="p-3 sm:p-4 bg-pulpPanel border-l-4 border-pulpGold rounded-r-md italic text-white text-xs sm:text-sm">
+                    "Look, we built this joke of a demo with our bare hands, but we're comically begging for your help to bring the real beast to life."
+                </div>
+            </section>
+
+            <!-- Section 3: Roadmap -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h3 class="text-pulpCyan font-bold text-sm sm:text-lg uppercase border-b border-pulpCyan/50 pb-2 flex items-center gap-2">
+                    <span>🗺️</span> THE TWO-PHASE ROADMAP
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                    <div class="bg-pulpPanel p-4 rounded-lg border border-pulpCrimson/50 space-y-2">
+                        <div class="text-pulpCrimson font-bold uppercase flex items-center justify-between">
+                            <span>PHASE 1 (LIVE NOW)</span>
+                            <span class="text-xs bg-pulpCrimson text-white px-2 py-0.5 rounded">$10,000</span>
+                        </div>
+                        <p class="font-bold text-white">Studio Startup &amp; Non-Profit Formation</p>
+                        <p class="text-gray-400 text-xs">Funding our legal non-profit setup (PULP Fund) and workstation baseline while you vote on core mechanics in our Director's Poll.</p>
+                    </div>
+                    <div class="bg-pulpPanel p-4 rounded-lg border border-pulpCyan/50 space-y-2">
+                        <div class="text-pulpCyan font-bold uppercase flex items-center justify-between">
+                            <span>PHASE 2 (COMING SOON)</span>
+                            <span class="text-xs bg-pulpCyan/20 text-pulpCyan px-2 py-0.5 rounded border border-pulpCyan">$150,000</span>
+                        </div>
+                        <p class="font-bold text-white">Full Kowloonvania Kickstarter</p>
+                        <p class="text-gray-400 text-xs">Launching our flagship production campaign calibrated directly from Phase 1 poll data to fund full art, music, boss AI, and ports.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Budget -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h3 class="text-pulpGold font-bold text-sm sm:text-lg uppercase border-b border-pulpGold/50 pb-2 flex items-center gap-2">
+                    <span>📊</span> TRANSPARENT $10,000 BUDGET BREAKDOWN
+                </h3>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <!-- Progress Bar Visual -->
+                    <div class="h-4 w-full bg-pulpDark rounded-full overflow-hidden flex border border-pulpBorder my-2">
+                        <div class="bg-pulpCrimson h-full" style="width: 45%" title="45% Non-Profit Legal"></div>
+                        <div class="bg-pulpGold h-full" style="width: 25%" title="25% Studio Infrastructure"></div>
+                        <div class="bg-pulpCyan h-full" style="width: 20%" title="20% Production Labor"></div>
+                        <div class="bg-gray-600 h-full" style="width: 10%" title="10% Fees"></div>
+                    </div>
+
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-2">
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpCrimson inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">Non-Profit Legal:</span>
+                                <span class="text-pulpCrimson font-bold ml-1">$4,500 (45%)</span>
+                                <p class="text-[10px] text-gray-400">CA state filing &amp; IRS 501(c)(3) setup</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpGold inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">Studio Infrastructure:</span>
+                                <span class="text-pulpGold font-bold ml-1">$2,500 (25%)</span>
+                                <p class="text-[10px] text-gray-400">Workstations, backups, dev tools</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpCyan inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">Kowloonvania Labor:</span>
+                                <span class="text-pulpCyan font-bold ml-1">$2,000 (20%)</span>
+                                <p class="text-[10px] text-gray-400">Initial code and art cycle pay</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-gray-600 inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">Platform &amp; Processing:</span>
+                                <span class="text-gray-300 font-bold ml-1">$1,000 (10%)</span>
+                                <p class="text-[10px] text-gray-400">Kickstarter platform &amp; Stripe fees</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 5: Tiers -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h2 class="text-pulpCyan font-bold text-base sm:text-xl uppercase border-b border-pulpCyan/50 pb-2 flex items-center gap-2">
+                    <span>🎁</span> BACKER REWARD TIERS
+                </h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+                    <!-- Tier 1 -->
+                    <div class="bg-pulpPanel p-3.5 rounded-lg border border-pulpBorder hover:border-pulpGold transition-colors">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-pulpGold font-bold">TIER 1: $10</span>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest">Operative</span>
+                        </div>
+                        <p class="text-white font-bold text-xs">The Arcade Operative</p>
+                        <p class="text-gray-400 text-xs mt-1">Digital credits listing + behind-the-scenes dev logs &amp; code snippets.</p>
+                    </div>
+
+                    <!-- Tier 2 -->
+                    <div class="bg-pulpPanel p-3.5 rounded-lg border border-pulpBorder hover:border-pulpGold transition-colors">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-pulpGold font-bold">TIER 2: $25</span>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest">Blueprint</span>
+                        </div>
+                        <p class="text-white font-bold text-xs">The Blueprint Backer</p>
+                        <p class="text-gray-400 text-xs mt-1">Tier 1 + Director's Poll voting rights on mechanics &amp; gothic wallpaper pack.</p>
+                    </div>
+
+                    <!-- Tier 3 -->
+                    <div class="bg-pulpPanel p-3.5 rounded-lg border border-pulpBorder hover:border-pulpGold transition-colors">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-pulpGold font-bold">TIER 3: $50</span>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest">Producer</span>
+                        </div>
+                        <p class="text-white font-bold text-xs">The Producer’s Circle</p>
+                        <p class="text-gray-400 text-xs mt-1">Tier 2 + name on in-game "Pulp Pioneers" plaque + private Discord server access.</p>
+                    </div>
+
+                    <!-- Tier 4 -->
+                    <div class="bg-pulpPanel p-3.5 rounded-lg border border-pulpBorder hover:border-pulpGold transition-colors">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-pulpGold font-bold">TIER 4: $100+</span>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest">Architect</span>
+                        </div>
+                        <p class="text-white font-bold text-xs">The Core Architect</p>
+                        <p class="text-gray-400 text-xs mt-1">Tier 3 + direct input eligibility for future PULP Fund grants + prototype source assets.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer Tag -->
+            <div class="text-center pt-4 border-t border-pulpBorder text-pulpCrimson font-bold uppercase tracking-widest text-xs sm:text-sm">
+                Don't leave us hanging. Just pure pulp action.
             </div>
 
         </main>
@@ -267,135 +240,5 @@
         </footer>
     </div>
 
-    <!-- JAVASCRIPT CONTROLLER -->
-    <script>
-        const rawCampaignHtml = `<div style="background-color: #08080a; color: #d1d5db; padding: 24px; font-family: monospace; border: 3px solid #2a2a35; border-radius: 12px; max-width: 750px; margin: 0 auto;">
-
-    <!-- HEADER ANNOUNCEMENT -->
-    <div style="background: linear-gradient(to right, #000000, #ff003c, #000000); color: #ffffff; padding: 10px; font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; border-bottom: 2px solid #ff003c; margin-bottom: 20px; text-align: center;">
-        <span style="color: #ffb703; background: #000; padding: 2px 6px; border-radius: 4px;">PULP GAMING ALERT</span> • PHASE 1 STARTUP & STUDIO INFRASTRUCTURE
-    </div>
-
-    <!-- DISCLOSURE -->
-    <h2 style="color: #ff003c; text-transform: uppercase; font-size: 18px; border-bottom: 2px solid #ff003c; padding-bottom: 4px; margin-top: 0;">
-        ⚠️ FULL DISCLOSURE: WHAT IS THIS FARCE?
-    </h2>
-    <p style="color: #9ca3af; font-size: 13px; line-height: 1.6;">
-        Let’s get one thing straight: the Frankenstein tech demo you just played is a total red herring. It’s a cobbled-together tech-joke designed purely to trick you into clicking so we could reel you in. Far from a polished "love letter," that rough experiment is our blunt-force way of proving we have a pulse.
-    </p>
-
-    <!-- REAL MISSION -->
-    <h2 style="color: #ffb703; text-transform: uppercase; font-size: 18px; border-bottom: 2px solid #ffb703; padding-bottom: 4px; margin-top: 20px;">
-        🧟 HELP US BUILD THE REAL MONSTER (THE PULP FUND)
-    </h2>
-    <p style="color: #9ca3af; font-size: 13px; line-height: 1.6;">
-        Jokes aside, our actual dream is dead serious: we want to forge a gorgeous, hard-hitting, genuine homage to Konami’s <em>Castlevania</em> and the gritty labyrinth of the Kowloon Walled City. No corporate suits. No paywalls. Just a 100% free game built by paid professionals who actually care.
-    </p>
-    <div style="background: #111116; border-left: 3px solid #ffb703; padding: 10px; font-style: italic; color: #ffffff; font-size: 13px; margin: 12px 0;">
-        "Look, we built this joke of a demo with our bare hands, but we're comically begging for your help to bring the real beast to life."
-    </div>
-
-    <!-- ROADMAP -->
-    <h3 style="color: #00f0ff; text-transform: uppercase; font-size: 15px; margin-top: 20px;">
-        🗺️ THE TWO-PHASE ROADMAP
-    </h3>
-    <div style="background: #111116; border: 1px solid #2a2a35; padding: 12px; border-radius: 8px; font-size: 12px; line-height: 1.5;">
-        <p style="color: #ffffff; font-weight: bold; margin: 0 0 4px 0;">• PHASE 1 (LIVE NOW): STUDIO STARTUP & NON-PROFIT FORMATION ($10,000 GOAL)</p>
-        <p style="color: #9ca3af; margin: 0 0 10px 0;">Funding legal non-profit setup (PULP Fund) and workstation baseline while you vote on core mechanics in our Director's Poll.</p>
-        <p style="color: #ffffff; font-weight: bold; margin: 0 0 4px 0;">• PHASE 2 (COMING SOON): FULL KOWLOONVANIA KICKSTARTER ($150,000 GOAL)</p>
-        <p style="color: #9ca3af; margin: 0;">Launching our flagship production campaign calibrated directly from Phase 1 poll data to fund full art, music, boss AI, and ports.</p>
-    </div>
-
-    <!-- BUDGET -->
-    <h3 style="color: #ffb703; text-transform: uppercase; font-size: 15px; margin-top: 20px;">
-        📊 TRANSPARENT $10,000 BUDGET BREAKDOWN
-    </h3>
-    <ul style="color: #9ca3af; font-size: 13px; list-style-type: none; padding-left: 0; line-height: 1.8;">
-        <li>• <strong style="color: #ffffff;">Non-Profit Legal Formation ($4,500 / 45%):</strong> CA state filing and IRS 501(c)(3) setup.</li>
-        <li>• <strong style="color: #ffffff;">Studio Infrastructure ($2,500 / 25%):</strong> Workstation upgrades, backups, and dev tools.</li>
-        <li>• <strong style="color: #ffffff;">Kowloonvania Production Labor ($2,000 / 20%):</strong> Initial code and art cycle pay.</li>
-        <li>• <strong style="color: #ffffff;">Platform & Processing Fees ($1,000 / 10%):</strong> Kickstarter platform & Stripe fees.</li>
-    </ul>
-
-    <!-- TIERS -->
-    <h2 style="color: #00f0ff; text-transform: uppercase; font-size: 18px; border-bottom: 2px solid #00f0ff; padding-bottom: 4px; margin-top: 24px;">
-        🎁 BACKER REWARD TIERS
-    </h2>
-
-    <div style="margin-bottom: 10px; background: #111116; padding: 10px; border-radius: 6px;">
-        <strong style="color: #ffb703; font-size: 14px;">TIER 1: $10 — The Arcade Operative</strong>
-        <p style="color: #9ca3af; font-size: 12px; margin: 4px 0 0 0;">Digital credits listing + behind-the-scenes dev logs & code snippets.</p>
-    </div>
-
-    <div style="margin-bottom: 10px; background: #111116; padding: 10px; border-radius: 6px;">
-        <strong style="color: #ffb703; font-size: 14px;">TIER 2: $25 — The Blueprint Backer</strong>
-        <p style="color: #9ca3af; font-size: 12px; margin: 4px 0 0 0;">Tier 1 + Director's Poll voting rights on mechanics & gothic wallpaper pack.</p>
-    </div>
-
-    <div style="margin-bottom: 10px; background: #111116; padding: 10px; border-radius: 6px;">
-        <strong style="color: #ffb703; font-size: 14px;">TIER 3: $50 — The Producer’s Circle</strong>
-        <p style="color: #9ca3af; font-size: 12px; margin: 4px 0 0 0;">Tier 2 + name on in-game "Pulp Pioneers" plaque + private Discord server access.</p>
-    </div>
-
-    <div style="margin-bottom: 10px; background: #111116; padding: 10px; border-radius: 6px;">
-        <strong style="color: #ffb703; font-size: 14px;">TIER 4: $100+ — The Core Architect</strong>
-        <p style="color: #9ca3af; font-size: 12px; margin: 4px 0 0 0;">Tier 3 + direct input eligibility for future PULP Fund grants + prototype source assets.</p>
-    </div>
-
-    <p style="color: #ff003c; text-align: center; font-weight: bold; font-size: 13px; margin-top: 24px; border-top: 1px solid #2a2a35; padding-top: 12px;">
-        Don't leave us hanging. Just pure pulp action.
-    </p>
-
-</div>`;
-
-        // Initialize code output
-        document.getElementById('code-output').value = rawCampaignHtml;
-
-        // View Mode Switcher
-        function setMode(mode) {
-            const visualView = document.getElementById('view-visual');
-            const codeView = document.getElementById('view-code');
-            const btnVisual = document.getElementById('btn-visual');
-            const btnCode = document.getElementById('btn-code');
-
-            if (mode === 'visual') {
-                visualView.classList.remove('hidden');
-                codeView.classList.add('hidden');
-
-                btnVisual.className = "flex-1 sm:flex-none px-4 py-2 text-xs font-bold rounded-md transition-all duration-200 flex items-center justify-center gap-2 bg-pulpCrimson text-white shadow-md";
-                btnCode.className = "flex-1 sm:flex-none px-4 py-2 text-xs font-bold rounded-md transition-all duration-200 flex items-center justify-center gap-2 text-gray-400 hover:text-white";
-            } else {
-                visualView.classList.add('hidden');
-                codeView.classList.remove('hidden');
-
-                btnCode.className = "flex-1 sm:flex-none px-4 py-2 text-xs font-bold rounded-md transition-all duration-200 flex items-center justify-center gap-2 bg-pulpCyan text-black shadow-md";
-                btnVisual.className = "flex-1 sm:flex-none px-4 py-2 text-xs font-bold rounded-md transition-all duration-200 flex items-center justify-center gap-2 text-gray-400 hover:text-white";
-            }
-        }
-
-        // Copy source code logic
-        function copySourceCode() {
-            const codeText = document.getElementById('code-output').value;
-            
-            // Fallback for iframe environment execution
-            const dummy = document.createElement("textarea");
-            document.body.appendChild(dummy);
-            dummy.value = codeText;
-            dummy.select();
-            document.execCommand("copy");
-            document.body.removeChild(dummy);
-
-            const copyBtnText = document.getElementById('copy-text');
-            const copyIcon = document.getElementById('copy-icon');
-            
-            copyBtnText.innerText = "COPIED!";
-            copyIcon.innerText = "✅";
-
-            setTimeout(() => {
-                copyBtnText.innerText = "COPY CODE";
-                copyIcon.innerText = "📄";
-            }, 2000);
-        }
-    </script>
 </body>
 </html>
