@@ -213,87 +213,103 @@
             </div>
         </section>
 
-        <!-- 4. Playable Prototype Hub -->
-        <section id="demo" class="max-w-5xl mx-auto px-6 py-12">
-            <div class="bg-pulpPanel border-2 border-pulpBorder rounded-2xl p-6 shadow-2xl arcade-cabinet-border">
-                <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-6 gap-2">
-                    <div>
-                        <span class="font-mono text-xs text-pulpCrimson font-bold uppercase tracking-widest">ARCADE TEST CHAMBER</span>
-                        <h3 class="font-bebas text-3xl text-white uppercase tracking-wide">PLAYABLE PROTOTYPE DEMO</h3>
-                    </div>
-                    <span class="font-mono text-xs bg-pulpCrimson/20 border border-pulpCrimson text-pulpCrimson px-3 py-1 rounded font-bold w-fit">
-                        BUILD v0.4.2 ONLINE
-                    </span>
-                </div>
+        
+<!-- 4. Playable Prototype Hub -->
+<section id="demo" class="max-w-5xl mx-auto px-6 py-12">
+    <div class="bg-pulpPanel border-2 border-pulpBorder rounded-2xl p-6 shadow-2xl arcade-cabinet-border">
 
-                <!-- Video Frame Simulation -->
-                
-<!-- Embedded Itch.io Game -->
-<div class="relative w-full bg-black rounded-xl overflow-hidden border-2 border-pulpBorder neon-glow-cyan">
-    <iframe
-        src="https://itch.io/embed/4589757"
-        title="Play Kowloonvania by PULP GAMING"
-        width="100%"
-        height="200"
-        frameborder="0"
-        allowfullscreen
-        loading="lazy"
-        class="block w-full"
-        style="border: none;"
-    >
-        <a href="https://pulpgaming.itch.io/kowloonvania">
-            Kowloonvania by PULP GAMING
-        </a>
-    </iframe>
-</div>
-
-<!-- Direct Game Access -->
-<div class="mt-6 text-center bg-pulpBg p-6 rounded-xl border border-pulpBorder">
-    <p class="font-mono text-xs text-pulpGold uppercase tracking-widest mb-2">
-        READY PLAYER ONE?
-    </p>
-
-    <h4 class="font-bebas text-2xl text-white uppercase mb-3">
-        KOWLOONVANIA
-    </h4>
-
-    <p class="font-mono text-xs text-gray-400 mb-5">
-        Play the prototype, explore the project, and follow development
-        directly on itch.io. The full game is intended to remain free.
-    </p>
-
-    <a
-        href="https://pulpgaming.itch.io/kowloonvania"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block font-bebas text-xl uppercase tracking-wider
-               bg-pulpCrimson hover:bg-red-600 text-white px-8 py-3
-               rounded-lg arcade-cabinet-border transition-all"
-    >
-        OPEN KOWLOONVANIA ON ITCH.IO ↗
-    </a>
-</div>
-
-
-                <!-- Tech Specs & Itch Link -->
-                <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
-                    <div class="bg-pulpBg p-4 rounded border border-pulpBorder">
-                        <span class="text-gray-500 block uppercase mb-1">Target Specs</span>
-                        <span class="text-white font-bold">60 FPS 2D Pixel Engine</span>
-                    </div>
-                    <div class="bg-pulpBg p-4 rounded border border-pulpBorder">
-                        <span class="text-gray-500 block uppercase mb-1">Input Support</span>
-                        <span class="text-white font-bold">Gamepad / Arcade Stick / KB</span>
-                    </div>
-                    <div class="bg-pulpBg p-4 rounded border border-pulpBorder flex flex-col justify-between">
-                        <span class="text-gray-500 block uppercase mb-1">Play the Game Now</span>
-                        <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="text-pulpNeonCyan font-bold hover:underline">
-                            LAUNCH ON ITCH.IO ↗
-                        </a>
-                    </div>
-                </div>
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-6 gap-2">
+            <div>
+                <span class="font-mono text-xs text-pulpCrimson font-bold uppercase tracking-widest">
+                    ARCADE TEST CHAMBER
+                </span>
+                <h3 class="font-bebas text-3xl text-white uppercase tracking-wide">
+                    PLAYABLE PROTOTYPE DEMO
+                </h3>
             </div>
-        </section>
+
+            <span class="font-mono text-xs bg-pulpCrimson/20 border border-pulpCrimson text-pulpCrimson px-3 py-1 rounded font-bold w-fit">
+                BUILD v0.4.2 ONLINE
+            </span>
+        </div>
+
+        <!-- VIDEO: Keep the YouTube Gameplay Trailer -->
+        <div class="mb-8">
+            <h4 class="font-bebas text-2xl text-white uppercase mb-3">
+                <span class="text-pulpCrimson">01 //</span> WATCH THE GAMEPLAY
+            </h4>
+
+            <div class="relative w-full aspect-video bg-black rounded-xl overflow-hidden border-2 border-pulpBorder neon-glow-cyan">
+                <iframe
+                    class="w-full h-full"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Kowloonvania Prototype Gameplay"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- GAME: Embed the Itch.io Game Card Below the Video -->
+        <div class="mb-6">
+            <h4 class="font-bebas text-2xl text-white uppercase mb-3">
+                <span class="text-pulpGold">02 //</span> PLAY & EXPLORE
+            </h4>
+
+            <p class="font-mono text-xs text-gray-400 mb-4 leading-relaxed">
+                Ready to jump in? Explore the Kowloonvania prototype on itch.io.
+                Play it there if a browser-playable build is available, or visit
+                the project page to access the available download.
+            </p>
+
+            <div class="w-full bg-black rounded-xl overflow-hidden border-2 border-pulpBorder neon-glow-gold p-2">
+                <iframe
+                    src="https://itch.io/embed/4589757"
+                    title="Kowloonvania by PULP GAMING on itch.io"
+                    width="100%"
+                    height="167"
+                    frameborder="0"
+                    loading="lazy"
+                    class="block w-full">
+                    <a href="https://pulpgaming.itch.io/kowloonvania">
+                        Kowloonvania by PULP GAMING
+                    </a>
+                </iframe>
+            </div>
+
+            <div class="mt-4 text-center">
+                <a
+                    href="https://pulpgaming.itch.io/kowloonvania"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block font-bebas text-xl uppercase tracking-wider bg-pulpCrimson hover:bg-red-600 text-white px-8 py-3 rounded-lg arcade-cabinet-border transition-all">
+                    OPEN GAME PAGE ON ITCH.IO ↗
+                </a>
+            </div>
+        </div>
+
+        <!-- TECH SPECS -->
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
+            <div class="bg-pulpBg p-4 rounded border border-pulpBorder">
+                <span class="text-gray-500 block uppercase mb-1">Target Specs</span>
+                <span class="text-white font-bold">60 FPS 2D Pixel Engine</span>
+            </div>
+
+            <div class="bg-pulpBg p-4 rounded border border-pulpBorder">
+                <span class="text-gray-500 block uppercase mb-1">Input Support</span>
+                <span class="text-white font-bold">Gamepad / Arcade Stick / KB</span>
+            </div>
+
+            <div class="bg-pulpBg p-4 rounded border border-pulpBorder flex flex-col justify-between">
+                <span class="text-gray-500 block uppercase mb-1">Project Status</span>
+                <span class="text-pulpNeonCyan font-bold">PROTOTYPE AVAILABLE</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 
         <!-- 5. Dual-Funding & Social Hub Section -->
         <section id="support" class="max-w-5xl mx-auto px-6 py-16">
