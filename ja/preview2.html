@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja" class="h-full bg-[#08080a]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulp Fund フェーズ1 クラウドファンディングキャンペーンプレビューデッキ</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pulpDark: '#08080a',
+                        pulpPanel: '#111116',
+                        pulpBorder: '#2a2a35',
+                        pulpCrimson: '#ff003c',
+                        pulpGold: '#ffb703',
+                        pulpCyan: '#00f0ff',
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'Fira Code', 'Monaco', 'Courier New', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #08080a; border-left: 1px solid #2a2a35; }
+        ::-webkit-scrollbar-thumb { background: #ff003c; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ffb703; }
+        .neon-border-red { box-shadow: 0 0 15px rgba(255, 0, 60, 0.25); }
+    </style>
+</head>
+<body class="h-full bg-pulpDark text-gray-300 font-mono flex flex-col justify-between p-3 sm:p-6 overflow-x-hidden">
+
+    <div class="max-w-4xl mx-auto w-full bg-pulpPanel border-2 border-pulpBorder rounded-xl neon-border-red overflow-hidden flex flex-col my-auto shadow-2xl">
+        
+        <!-- HEADER TITLE BAR -->
+        <header class="bg-black/80 border-b-2 border-pulpBorder p-4 sm:p-5 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <span class="inline-block w-3 h-3 rounded-full bg-pulpCrimson animate-ping"></span>
+                <div>
+                    <h1 class="text-white font-bold text-base sm:text-lg tracking-wider uppercase flex items-center gap-2">
+                        <span>PULP FUND</span>
+                        <span class="text-xs text-pulpGold bg-pulpCrimson/20 border border-pulpCrimson px-2 py-0.5 rounded">PHASE 1</span>
+                    </h1>
+                    <p class="text-xs text-gray-400">クラウドファンディングプレビューデッキ</p>
+                </div>
+            </div>
+            <a href="index.html" class="text-xs bg-pulpDark hover:bg-pulpBorder text-gray-300 px-3 py-1.5 rounded border border-pulpBorder transition-colors">
+                ← ホームに戻る
+            </a>
+        </header>
+
+        <!-- CONTENT PANEL -->
+        <main class="p-4 sm:p-8 overflow-y-auto max-h-[75vh] space-y-6">
+            
+            <!-- Announcement Banner -->
+            <div class="bg-gradient-to-r from-black via-pulpCrimson/40 to-black border-y-2 border-pulpCrimson p-3 text-center rounded-md">
+                <span class="bg-black text-pulpGold font-bold px-2 py-1 rounded text-xs border border-pulpGold mr-2">PULP GAMING アラート</span>
+                <span class="text-white font-bold text-xs sm:text-sm tracking-widest uppercase">フェーズ1 スタートアップ & スタジオインフラ</span>
+            </div>
+
+            <!-- Section 1: Disclosure -->
+            <section class="space-y-2 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h2 class="text-pulpCrimson font-bold text-base sm:text-xl uppercase border-b border-pulpCrimson/50 pb-2 flex items-center gap-2">
+                    <span>⚠️</span> 完全な開示：この茶番劇は何なのか？
+                </h2>
+                <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
+                    ハッキリ言いましょう：<a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="text-pulpGold font-bold underline hover:text-white transition-colors">ここにあるフランケンシュタインのようなデモ</a> は完全にミスリードです。クリックさせて釣り上げるためだけに急ごしらえで作られたテックジョークに過ぎません。この粗削りな実験は私たちが生きていることを証明するための力づくの方法です。
+                </p>
+            </section>
+
+            <!-- Section 2: Real Mission -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h2 class="text-pulpGold font-bold text-base sm:text-xl uppercase border-b border-pulpGold/50 pb-2 flex items-center gap-2">
+                    <span>🧟</span> 本物の怪物を一緒に作ろう（PULP FUND）
+                </h2>
+                <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
+                    冗談はさておき、私たちの本当の夢は極めて本気です：コナミの『悪魔城ドラキュラ』（<em>Castlevania</em>）と九龍城砦の険しい迷宮に対するオマージュを創り上げたいのです。企業の上層部もペイウォールもありません。本当に情熱を持ったプロたちが開発する100%無料のゲームです。
+                </p>
+                <div class="p-3 sm:p-4 bg-pulpPanel border-l-4 border-pulpGold rounded-r-md italic text-white text-xs sm:text-sm">
+                    「いいですか、このジョークのようなデモは自分たちの手で作り上げましたが、本物の野獣を蘇らせるために、私たちは滑稽なほど皆様の助けを乞い求めているのです。」
+                </div>
+            </section>
+
+            <!-- Section 3: Roadmap -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h3 class="text-pulpCyan font-bold text-sm sm:text-lg uppercase border-b border-pulpCyan/50 pb-2 flex items-center gap-2">
+                    <span>🗺️</span> 2つのフェーズのロードマップ
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                    <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="block bg-pulpPanel p-4 rounded-lg border border-pulpCrimson/50 hover:border-pulpCrimson hover:bg-black/60 transition-all group space-y-2">
+                        <div class="text-pulpCrimson font-bold uppercase flex items-center justify-between">
+                            <span class="group-hover:underline">フェーズ 1（現在進行中）↗</span>
+                            <span class="text-xs bg-pulpCrimson text-white px-2 py-0.5 rounded">$10,000</span>
+                        </div>
+                        <p class="font-bold text-white">スタジオスタートアップ & 法人設立</p>
+                        <p class="text-gray-400 text-xs">非営利法人（PULP Fund）の設立と開発環境の構築費用を調達します。</p>
+                    </a>
+                    
+                    <a href="index.html#poll" class="block bg-pulpPanel p-4 rounded-lg border border-pulpCyan/50 hover:border-pulpCyan hover:bg-black/60 transition-all group space-y-2">
+                        <div class="text-pulpCyan font-bold uppercase flex items-center justify-between">
+                            <span class="group-hover:underline">フェーズ 2（近日公開）↗</span>
+                            <span class="text-xs bg-pulpCyan/20 text-pulpCyan px-2 py-0.5 rounded border border-pulpCyan">$150,000</span>
+                        </div>
+                        <p class="font-bold text-white">Kowloonvania本編クラウドファンディング</p>
+                        <p class="text-gray-400 text-xs">本格的な制作キャンペーンを立ち上げ、フルアート、音楽、ボスAI、移植の資金を調達します。</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section 4: Budget -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h3 class="text-pulpGold font-bold text-sm sm:text-lg uppercase border-b border-pulpGold/50 pb-2 flex items-center gap-2">
+                    <span>📊</span> 1万ドルの透明な予算内訳
+                </h3>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <div class="h-4 w-full bg-pulpDark rounded-full overflow-hidden flex border border-pulpBorder my-2">
+                        <div class="bg-pulpCrimson h-full" style="width: 45%" title="45% 法人設立"></div>
+                        <div class="bg-pulpGold h-full" style="width: 25%" title="25% スタジオインフラ"></div>
+                        <div class="bg-pulpCyan h-full" style="width: 20%" title="20% 開発費"></div>
+                        <div class="bg-gray-600 h-full" style="width: 10%" title="10% 手数料"></div>
+                    </div>
+
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-2">
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpCrimson inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">非営利法人設立費用:</span>
+                                <span class="text-pulpCrimson font-bold ml-1">$4,500 (45%)</span>
+                                <p class="text-[10px] text-gray-400">カリフォルニア州登記 & IRS 501(c)(3) 申請</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpGold inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">スタジオインフラ:</span>
+                                <span class="text-pulpGold font-bold ml-1">$2,500 (25%)</span>
+                                <p class="text-[10px] text-gray-400">ワークステーション、バックアップ、開発ツール</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpCyan inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">開発人件費:</span>
+                                <span class="text-pulpCyan font-bold ml-1">$2,000 (20%)</span>
+                                <p class="text-[10px] text-gray-400">初期コードおよびアート制作報酬</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-gray-600 inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">プラットフォーム & 決済手数料:</span>
+                                <span class="text-gray-300 font-bold ml-1">$1,000 (10%)</span>
+                                <p class="text-[10px] text-gray-400">決済処理手数料およびプラットフォーム手数料</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 5: Donation Banner -->
+            <section class="space-y-4 bg-black/40 p-5 rounded-lg border-2 border-pulpGold neon-border-red text-center">
+                <h2 class="text-pulpGold font-bold text-base sm:text-xl uppercase border-b border-pulpGold/50 pb-2 flex items-center justify-center gap-2">
+                    <span>⚡</span> 直接支援 & コミュニティバック
+                </h2>
+                <p class="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    フェーズ1の資金はコミュニティからの直接支援によって賄われます。すべての資金は非営利法人の設立とクリエイターへの正当な報酬に充てられます。
+                </p>
+                <div class="pt-2">
+                    <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="inline-block bg-pulpCrimson hover:bg-red-600 text-white font-bold text-sm sm:text-base px-8 py-3 rounded-lg border-2 border-pulpGold transition-all transform hover:scale-105 uppercase tracking-wider shadow-lg">
+                        🔥 ITCH.IOで開発を支援する ↗
+                    </a>
+                </div>
+            </section>
+
+            <div class="text-center pt-4 border-t border-pulpBorder text-pulpCrimson font-bold uppercase tracking-widest text-xs sm:text-sm">
+                私たちを放っておかないでください。純粋なパルプアクションをあなたに。
+            </div>
+
+        </main>
+
+        <footer class="bg-black/80 border-t border-pulpBorder p-3 text-center text-[11px] text-gray-500">
+            PULP GAMING FRAMEWORK • CROWDFUND PREVIEW DECK
+        </footer>
+    </div>
+
+</body>
+</html>
