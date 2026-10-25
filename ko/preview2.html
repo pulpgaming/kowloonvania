@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko" class="h-full bg-[#08080a]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulp Fund 1단계 크라우드펀딩 캠페인 프리뷰 덱</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pulpDark: '#08080a',
+                        pulpPanel: '#111116',
+                        pulpBorder: '#2a2a35',
+                        pulpCrimson: '#ff003c',
+                        pulpGold: '#ffb703',
+                        pulpCyan: '#00f0ff',
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'Fira Code', 'Monaco', 'Courier New', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #08080a; border-left: 1px solid #2a2a35; }
+        ::-webkit-scrollbar-thumb { background: #ff003c; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ffb703; }
+        .neon-border-red { box-shadow: 0 0 15px rgba(255, 0, 60, 0.25); }
+    </style>
+</head>
+<body class="h-full bg-pulpDark text-gray-300 font-mono flex flex-col justify-between p-3 sm:p-6 overflow-x-hidden">
+
+    <div class="max-w-4xl mx-auto w-full bg-pulpPanel border-2 border-pulpBorder rounded-xl neon-border-red overflow-hidden flex flex-col my-auto shadow-2xl">
+        
+        <!-- HEADER TITLE BAR -->
+        <header class="bg-black/80 border-b-2 border-pulpBorder p-4 sm:p-5 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <span class="inline-block w-3 h-3 rounded-full bg-pulpCrimson animate-ping"></span>
+                <div>
+                    <h1 class="text-white font-bold text-base sm:text-lg tracking-wider uppercase flex items-center gap-2">
+                        <span>PULP FUND</span>
+                        <span class="text-xs text-pulpGold bg-pulpCrimson/20 border border-pulpCrimson px-2 py-0.5 rounded">1단계</span>
+                    </h1>
+                    <p class="text-xs text-gray-400">크라우드펀딩 캠페인 프리뷰 덱</p>
+                </div>
+            </div>
+            <a href="index.html" class="text-xs bg-pulpDark hover:bg-pulpBorder text-gray-300 px-3 py-1.5 rounded border border-pulpBorder transition-colors">
+                ← 홈으로 돌아가기
+            </a>
+        </header>
+
+        <!-- CONTENT PANEL -->
+        <main class="p-4 sm:p-8 overflow-y-auto max-h-[75vh] space-y-6">
+            
+            <!-- Announcement Banner -->
+            <div class="bg-gradient-to-r from-black via-pulpCrimson/40 to-black border-y-2 border-pulpCrimson p-3 text-center rounded-md">
+                <span class="bg-black text-pulpGold font-bold px-2 py-1 rounded text-xs border border-pulpGold mr-2">PULP GAMING 알림</span>
+                <span class="text-white font-bold text-xs sm:text-sm tracking-widest uppercase">1단계 스타트업 & 스튜디오 인프라 구축</span>
+            </div>
+
+            <!-- Section 1: Disclosure -->
+            <section class="space-y-2 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h2 class="text-pulpCrimson font-bold text-base sm:text-xl uppercase border-b border-pulpCrimson/50 pb-2 flex items-center gap-2">
+                    <span>⚠️</span> 전면 공개: 이게 도대체 무슨 짓인가?
+                </h2>
+                <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
+                    직설적으로 말씀드리겠습니다. <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="text-pulpGold font-bold underline hover:text-white transition-colors">여기 있는 프랑켄슈타인 데모</a>는 완전한 낚시입니다. 여러분이 클릭하도록 유도하기 위해 급조한 기술 실험작이죠. 저희에게 맥박이 있다는 것을 증명하기 위한 무식한 방식의 실험입니다.
+                </p>
+            </section>
+
+            <!-- Section 2: Real Mission -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h2 class="text-pulpGold font-bold text-base sm:text-xl uppercase border-b border-pulpGold/50 pb-2 flex items-center gap-2">
+                    <span>🧟</span> 진짜 괴물을 만드는 데 동참해 주세요 (PULP FUND)
+                </h2>
+                <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
+                    농담은 여기까지 하고, 우리의 진짜 꿈은 진지합니다. 코나미의 <em>캐슬바니아(Castlevania)</em>와 구룡성채의 미로에 바치는 진정한 오마주를 만들고 싶습니다. 페이월도, 기업의 간섭도 없는 100% 무료 게임입니다.
+                </p>
+                <div class="p-3 sm:p-4 bg-pulpPanel border-l-4 border-pulpGold rounded-r-md italic text-white text-xs sm:text-sm">
+                    "보시다시피 이 우스꽝스러운 데모는 맨손으로 만들었지만, 진짜 괴물을 생생하게 살려내기 위해 염치불구하고 여러분의 도움이 절실히 필요합니다."
+                </div>
+            </section>
+
+            <!-- Section 3: Roadmap -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h3 class="text-pulpCyan font-bold text-sm sm:text-lg uppercase border-b border-pulpCyan/50 pb-2 flex items-center gap-2">
+                    <span>🗺️</span> 2단계 로드맵
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                    <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="block bg-pulpPanel p-4 rounded-lg border border-pulpCrimson/50 hover:border-pulpCrimson hover:bg-black/60 transition-all group space-y-2">
+                        <div class="text-pulpCrimson font-bold uppercase flex items-center justify-between">
+                            <span class="group-hover:underline">1단계 (진행 중) ↗</span>
+                            <span class="text-xs bg-pulpCrimson text-white px-2 py-0.5 rounded">$10,000</span>
+                        </div>
+                        <p class="font-bold text-white">스튜디오 스타트업 & 법인 설립</p>
+                        <p class="text-gray-400 text-xs">비영리 법인(PULP Fund) 세팅과 개발 장비 구축 비용을 후원받습니다.</p>
+                    </a>
+                    
+                    <a href="index.html#poll" class="block bg-pulpPanel p-4 rounded-lg border border-pulpCyan/50 hover:border-pulpCyan hover:bg-black/60 transition-all group space-y-2">
+                        <div class="text-pulpCyan font-bold uppercase flex items-center justify-between">
+                            <span class="group-hover:underline">2단계 (출시 예정) ↗</span>
+                            <span class="text-xs bg-pulpCyan/20 text-pulpCyan px-2 py-0.5 rounded border border-pulpCyan">$150,000</span>
+                        </div>
+                        <p class="font-bold text-white">구룡바니아 본편 크라우드펀딩</p>
+                        <p class="text-gray-400 text-xs">아트, 음악, 보스 AI 및 이식을 위한 본격적인 제작 크라우드펀딩 캠페인을 오픈합니다.</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section 4: Budget -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h3 class="text-pulpGold font-bold text-sm sm:text-lg uppercase border-b border-pulpGold/50 pb-2 flex items-center gap-2">
+                    <span>📊</span> 1만 달러 예산 배정 투명 내역
+                </h3>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <div class="h-4 w-full bg-pulpDark rounded-full overflow-hidden flex border border-pulpBorder my-2">
+                        <div class="bg-pulpCrimson h-full" style="width: 45%" title="45% 법인 설립"></div>
+                        <div class="bg-pulpGold h-full" style="width: 25%" title="25% 스튜디오 인프라"></div>
+                        <div class="bg-pulpCyan h-full" style="width: 20%" title="20% 인건비"></div>
+                        <div class="bg-gray-600 h-full" style="width: 10%" title="10% 수수료"></div>
+                    </div>
+
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-2">
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpCrimson inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">비영리 법인 설립:</span>
+                                <span class="text-pulpCrimson font-bold ml-1">$4,500 (45%)</span>
+                                <p class="text-[10px] text-gray-400">캘리포니아주 법인 등록 및 IRS 501(c)(3) 신청</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpGold inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">스튜디오 인프라:</span>
+                                <span class="text-pulpGold font-bold ml-1">$2,500 (25%)</span>
+                                <p class="text-[10px] text-gray-400">워크스테이션, 백업 및 개발 툴</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpCyan inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">개발 인건비:</span>
+                                <span class="text-pulpCyan font-bold ml-1">$2,000 (20%)</span>
+                                <p class="text-[10px] text-gray-400">초기 코드 및 아트 작업 보수</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-gray-600 inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">플랫폼 및 수수료:</span>
+                                <span class="text-gray-300 font-bold ml-1">$1,000 (10%)</span>
+                                <p class="text-[10px] text-gray-400">플랫폼 이용료 및 결제 수수료</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 5: Donation Banner -->
+            <section class="space-y-4 bg-black/40 p-5 rounded-lg border-2 border-pulpGold neon-border-red text-center">
+                <h2 class="text-pulpGold font-bold text-base sm:text-xl uppercase border-b border-pulpGold/50 pb-2 flex items-center justify-center gap-2">
+                    <span>⚡</span> 직접 후원 및 커뮤니티 지원
+                </h2>
+                <p class="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    1단계 자금은 커뮤니티의 직접적인 후원으로 충당됩니다. 모든 후원금은 비영리 법인 설립 및 아티스트와 개발자의 보수 지급에 직접 사용됩니다.
+                </p>
+                <div class="pt-2">
+                    <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="inline-block bg-pulpCrimson hover:bg-red-600 text-white font-bold text-sm sm:text-base px-8 py-3 rounded-lg border-2 border-pulpGold transition-all transform hover:scale-105 uppercase tracking-wider shadow-lg">
+                        🔥 ITCH.IO에서 직접 후원하기 ↗
+                    </a>
+                </div>
+            </section>
+
+            <div class="text-center pt-4 border-t border-pulpBorder text-pulpCrimson font-bold uppercase tracking-widest text-xs sm:text-sm">
+                저희를 외롭게 두지 마세요. 순수한 펄프 액션의 세계로.
+            </div>
+
+        </main>
+
+        <footer class="bg-black/80 border-t border-pulpBorder p-3 text-center text-[11px] text-gray-500">
+            PULP GAMING 프레임워크 • 크라우드펀딩 프리뷰 덱
+        </footer>
+    </div>
+
+</body>
+</html>
