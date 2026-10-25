@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOWLOONVANIA — 어둠으로의 납품 | Pulp Gaming</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Bebas Neue, Cinzel, JetBrains Mono, Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@700;900&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pulpBg: '#08080a',
+                        pulpPanel: '#111116',
+                        pulpBorder: '#2a2a35',
+                        pulpCrimson: '#ff003c',
+                        pulpGold: '#ffb703',
+                        pulpNeonCyan: '#00f0ff',
+                    },
+                    fontFamily: {
+                        bebas: ['"Bebas Neue"', 'cursive', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS for Scanlines, Glows, and Pulp Arcade Textures -->
+    <style>
+        body {
+            background-color: #08080a;
+            color: #d1d5db;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Scanline Overlay for CRT Arcade Feel */
+        .scanlines {
+            position: relative;
+        }
+        .scanlines::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
+            background-size: 100% 4px;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* Neon & Cabinet Glow Effects */
+        .neon-glow-red {
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.35), inset 0 0 10px rgba(255, 0, 60, 0.2);
+        }
+        .neon-glow-gold {
+            box-shadow: 0 0 20px rgba(255, 183, 3, 0.25), inset 0 0 8px rgba(255, 183, 3, 0.15);
+        }
+        .neon-glow-cyan {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .text-glow-crimson {
+            text-shadow: 0 0 12px rgba(255, 0, 60, 0.8), 0 0 24px rgba(255, 0, 60, 0.4);
+        }
+        .text-glow-gold {
+            text-shadow: 0 0 10px rgba(255, 183, 3, 0.7);
+        }
+        
+        /* Arcade Cabinet Bevel Border */
+        .arcade-cabinet-border {
+            border: 3px solid #2a2a35;
+            border-top-color: #444455;
+            border-bottom-color: #111118;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08080a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff003c;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between scanlines antialiased selection:bg-pulpCrimson selection:text-white">
+
+    <!-- Language Switcher Bar -->
+    <div class="bg-pulpPanel border-b border-pulpBorder py-2 px-6 flex justify-end items-center gap-2 font-mono text-xs">
+        <span class="text-gray-500">언어:</span>
+        <a href="../index.html" class="text-gray-400 hover:text-white">EN</a> | 
+        <a href="../es/index.html" class="text-gray-400 hover:text-white">ES</a> | 
+        <a href="./index.html" class="text-pulpGold font-bold"><strong>KO</strong></a> | 
+        <a href="../zh/index.html" class="text-gray-400 hover:text-white">ZH</a> | 
+        <a href="../ja/index.html" class="text-gray-400 hover:text-white">JA</a> | 
+        <a href="../ru/index.html" class="text-gray-400 hover:text-white">RU</a> | 
+        <a href="../fr/index.html" class="text-gray-400 hover:text-white">FR</a>
+    </div>
+
+    <!-- 1. Header Announcement Bar -->
+    <div class="bg-gradient-to-r from-black via-pulpCrimson to-black text-white text-xs font-mono py-2.5 px-4 text-center font-bold tracking-widest uppercase border-b border-pulpCrimson/50 flex flex-wrap justify-center items-center gap-3">
+        <span class="bg-black/60 px-2.5 py-0.5 rounded text-pulpGold border border-pulpGold/40 animate-pulse">PULP GAMING 알림</span>
+        <span>1단계 크라우드펀딩 캠페인 준비 중</span>
+        <span class="hidden sm:inline text-pulpCrimson">•</span>
+        <a href="../preview2.html" class="underline hover:text-pulpGold transition-colors">펀딩 프리뷰 덱 보기 →</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="w-full max-w-7xl mx-auto px-6 py-5 flex justify-between items-center border-b border-pulpBorder/80">
+        <a href="#" class="flex items-center gap-2 group">
+            <img src="../logo_front_Kowloonvania.webp" alt="Kowloonvania 로고" class="h-10 w-auto object-contain">
+        </a>
+        <nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-gray-400">
+            <a href="#hero" class="hover:text-pulpCrimson transition-colors">개요</a>
+            <a href="#poll" class="hover:text-pulpGold transition-colors">디렉터스 폴</a>
+            <a href="#demo" class="hover:text-pulpNeonCyan transition-colors">프로토타입 허브</a>
+            <a href="#support" class="hover:text-pulpCrimson transition-colors">1 & 2단계</a>
+            <a href="#budget" class="hover:text-white transition-colors">예산안</a>
+        </nav>
+        <a href="#support" class="font-bebas text-lg font-bold tracking-wider uppercase bg-pulpCrimson hover:bg-red-700 text-white px-5 py-1.5 rounded arcade-cabinet-border transition-all">
+            프로젝트 후원하기
+        </a>
+    </header>
+
+    <main class="flex-grow">
+        <!-- 2. Hero Section with Layered Animated Background & WebP Logo Replacement -->
+        <section id="hero" class="max-w-5xl mx-auto px-6 pt-12 pb-20 text-center relative rounded-2xl overflow-hidden my-8 arcade-cabinet-border neon-glow-red">
+            
+            <!-- LAYER 1: The Animated GIF Background with Dark Gradient Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="../Kowloonvania_intro.gif" alt="Kowloonvania 애니메이션 배경" class="w-full h-full object-cover opacity-50">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#08080a] via-[#08080a]/80 to-[#08080a]/40"></div>
+            </div>
+
+            <!-- LAYER 2: Foreground Content -->
+            <div class="relative z-10 max-w-3xl mx-auto pt-6">
+                <div class="inline-flex items-center gap-2 bg-pulpPanel/90 border border-pulpGold/50 text-pulpGold font-mono text-xs px-4 py-1.5 rounded-full uppercase tracking-widest mb-6 neon-glow-gold backdrop-blur-sm">
+                    <span class="w-2 h-2 rounded-full bg-pulpGold animate-ping"></span>
+                    정식 출시 시 100% 무료 게임
+                </div>
+                
+                <!-- WebP Logo Replacing the Text Heading -->
+                <div class="mb-6 flex justify-center">
+                    <img src="../hero_logo_Kowloonvania.webp" alt="Kowloonvania 로고" class="w-full max-w-xl h-auto object-contain drop-shadow-[0_0_20px_rgba(255,0,60,0.6)]">
+                </div>
+
+                <div class="font-mono text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto mb-10 text-left bg-black/70 p-6 rounded-xl border-l-4 border-pulpCrimson neon-glow-red backdrop-blur-md leading-relaxed">
+                    <p class="text-white font-bold tracking-wider uppercase mb-2 text-sm">⚠️ 전면 공개: 이게 도대체 무슨 짓인가?</p>
+                    <p class="mb-4 text-gray-300">
+                        직설적으로 말씀드리겠습니다. 이 프랑켄슈타인 데모는 완전한 낚시입니다. 여러분이 클릭하도록 유도해 끌어들이기 위해 급조한 기술 실험작이죠. 멋진 '러브레터'라기보다는, 저희에게 맥박이 있다는 것을 증명하기 위한 무식한 방식의 실험에 가깝습니다.
+                    </p>
+                    <p class="text-white font-bold tracking-wider uppercase mb-2 text-sm">🧟 *진짜 괴물*을 만드는 데 동참해 주세요</p>
+                    <p class="mb-3 text-gray-300">
+                        농담은 여기까지 하고, 우리의 진짜 꿈은 진지합니다. 코나미의 <em>캐슬바니아(Castlevania)</em>와 구룡성채의 거친 미로에 바치는 화려하고 타격감 넘치는 진정한 오마주를 만들고 싶습니다. 기업의 간섭도, 페이월도 없습니다. 오직 진정성 있는 전문가들이 개발하는 100% 무료 게임입니다.
+                    </p>
+                    <p class="mb-4 text-gray-300 italic text-pulpGold">
+                        "보시다시피 이 우스꽝스러운 데모는 맨손으로 만들었지만, 진짜 괴물을 생생하게 살려내기 위해 염치불구하고 여러분의 도움이 절실히 필요합니다."
+                    </p>
+                    <ul class="list-none space-y-1.5 mb-4 text-gray-400 font-mono text-xs">
+                        <li>• <strong class="text-pulpGold">디렉터스 폴:</strong> 어떤 괴물을 만들고 싶은지 아래 투표해 주세요.</li>
+                        <li>• <strong class="text-pulpGold">프리프로덕션 크라우드펀딩:</strong> 개발진 식대와 법무 세팅 비용을 위한 $10k 1단계 캠페인을 후원해 주세요.</li>
+                        <li>• <strong class="text-pulpGold">커뮤니티 피드:</strong> 소셜 채널에 가입하여 개발 진행 상황을 확인하세요.</li>
+                    </ul>
+                    <p class="text-pulpCrimson font-bold uppercase tracking-widest text-center border-t border-pulpBorder pt-3">
+                        저희를 외롭게 두지 마세요. 순수한 펄프 액션의 세계로.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+                    <a href="#demo" class="w-full sm:w-auto font-bebas text-2xl tracking-wider uppercase bg-pulpCrimson hover:bg-red-600 text-white px-8 py-3 rounded-lg arcade-cabinet-border neon-glow-red transition-all transform hover:-translate-y-0.5">
+                        🎮 프로토타입 데모 플레이
+                    </a>
+                    <a href="#support" class="w-full sm:w-auto font-bebas text-2xl tracking-wider uppercase bg-pulpPanel border border-pulpGold text-pulpGold hover:bg-pulpGold hover:text-black px-8 py-3 rounded-lg arcade-cabinet-border transition-all">
+                        ⚡ 프로젝트 후원하기
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. The Director's Poll (Live Tally.so Integration) -->
+        <section id="poll" class="max-w-5xl mx-auto px-6 py-16">
+            <div class="bg-pulpPanel border-2 border-pulpBorder rounded-2xl p-6 sm:p-10 relative arcade-cabinet-border neon-glow-gold">
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <span class="font-mono text-xs text-pulpGold uppercase tracking-widest font-bold bg-pulpGold/10 px-3 py-1 rounded border border-pulpGold/30">커뮤니티 디렉션</span>
+                    <h2 class="font-bebas text-4xl sm:text-5xl font-bold uppercase text-white mt-3 mb-2 tracking-wide">
+                        디렉터스 폴 <span class="text-pulpCrimson">(펄프 실험)</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-gray-400 font-mono leading-relaxed">
+                        구룡바니아의 핵심 디자인 철학을 결정하기 위해 아래 투표에 참여해 주세요. 모든 데이터와 이메일은 개발자 원장에 직접 동기화됩니다.
+                    </p>
+                </div>
+
+                <!-- REAL LIVE TALLY.SO EMBED -->
+                <div class="w-full bg-black/40 border border-pulpBorder rounded-xl p-4">
+                    <iframe 
+                        data-tally-src="https://tally.so/embed/9qLjlp?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                        loading="lazy" 
+                        width="100%" 
+                        height="400" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        title="디렉터스 폴">
+                    </iframe>
+                    <script>
+                        var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+                    </script>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 4. Playable Prototype Hub -->
+        <section id="demo" class="max-w-5xl mx-auto px-6 py-12">
+            <div class="bg-pulpPanel border-2 border-pulpBorder rounded-2xl p-6 shadow-2xl arcade-cabinet-border">
+
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-6 gap-2">
+                    <div>
+                        <span class="font-mono text-xs text-pulpCrimson font-bold uppercase tracking-widest">
+                            아케이드 테스트 체임버
+                        </span>
+                        <h3 class="font-bebas text-3xl text-white uppercase tracking-wide">
+                            플레이 가능한 프로토타입 데모
+                        </h3>
+                    </div>
+
+                    <span class="font-mono text-xs bg-pulpCrimson/20 border border-pulpCrimson text-pulpCrimson px-3 py-1 rounded font-bold w-fit">
+                        빌드 v0.4.2 온라인
+                    </span>
+
+                </div>
+
+                <!-- VIDEO: Keep the YouTube Gameplay Trailer -->
+                <div class="mb-8">
+                    <h4 class="font-bebas text-2xl text-white uppercase mb-3">
+                        <span class="text-pulpCrimson">01 //</span> 게임플레이 시청
+                    </h4>
+
+                    <div class="relative w-full aspect-video bg-black rounded-xl overflow-hidden border-2 border-pulpBorder neon-glow-cyan">
+                        <iframe
+                            class="w-full h-full"
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                            title="구룡바니아 프로토타입 게임플레이"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- GAME: Embed the Itch.io Game Card Below the Video -->
+                <div class="mb-6">
+                    <h4 class="font-bebas text-2xl text-white uppercase mb-3">
+                        <span class="text-pulpGold">02 //</span> 플레이 및 탐험
+                    </h4>
+
+                    <p class="font-mono text-xs text-gray-400 mb-4 leading-relaxed">
+                        직접 뛰어들 준비가 되셨나요? itch.io에서 구룡바니아 프로토타입을 탐험해보세요.
+                        브라우저 플레이 빌드가 지원되는 경우 바로 플레이하거나, 프로젝트 페이지를 방문해
+                        다운로드 버전을 이용하실 수 있습니다.
+                    </p>
+
+                    <div class="w-full bg-black rounded-xl overflow-hidden border-2 border-pulpBorder neon-glow-gold p-2">
+                        <iframe
+                            src="https://itch.io/embed/4589757"
+                            title="Kowloonvania by PULP GAMING on itch.io"
+                            width="100%"
+                            height="167"
+                            frameborder="0"
+                            loading="lazy"
+                            class="block w-full">
+                            <a href="https://pulpgaming.itch.io/kowloonvania">
+                                Kowloonvania by PULP GAMING
+                            </a>
+                        </iframe>
+                    </div>
+
+                    <div class="mt-4 text-center">
+                        <a
+                            href="https://pulpgaming.itch.io/kowloonvania"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-block font-bebas text-xl uppercase tracking-wider bg-pulpCrimson hover:bg-red-600 text-white px-8 py-3 rounded-lg arcade-cabinet-border transition-all">
+                            ITCH.IO에서 게임 페이지 열기 ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TECH SPECS -->
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
+                    <div class="bg-pulpBg p-4 rounded border border-pulpBorder">
+                        <span class="text-gray-500 block uppercase mb-1">목표 사양</span>
+                        <span class="text-white font-bold">60 FPS 2D 픽셀 엔진</span>
+                    </div>
+
+                    <div class="bg-pulpBg p-4 rounded border border-pulpBorder">
+                        <span class="text-gray-500 block uppercase mb-1">입력 지원</span>
+                        <span class="text-white font-bold">게임패드 / 아케이드 스틱 / 키보드</span>
+                    </div>
+
+                    <div class="bg-pulpBg p-4 rounded border border-pulpBorder flex flex-col justify-between">
+                        <span class="text-gray-500 block uppercase mb-1">프로젝트 상태</span>
+                        <span class="text-pulpNeonCyan font-bold">프로토타입 이용 가능</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. Dual-Funding & Social Hub Section -->
+        <section id="support" class="max-w-5xl mx-auto px-6 py-16">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="font-mono text-xs text-pulpCrimson uppercase tracking-widest font-bold">퍼블리셔 없음 • 100% 인디</span>
+                <h2 class="font-bebas text-4xl sm:text-5xl font-bold uppercase text-white mt-2">로드맵 및 스튜디오 후원</h2>
+                <p class="font-mono text-xs text-gray-400 mt-2">
+                    완전한 창작 독립성을 유지하면서 구룡바니아를 100% 무료로 유지하는 방법.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- RED: Phase 1 Crowdfund Card -->
+                <div class="bg-pulpPanel border-2 border-pulpCrimson rounded-2xl p-6 sm:p-8 flex flex-col justify-between arcade-cabinet-border neon-glow-red">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-mono text-xs font-bold text-pulpCrimson uppercase bg-pulpCrimson/10 px-3 py-1 rounded border border-pulpCrimson/30">1단계 • 프리프로덕션</span>
+                            <span class="font-mono text-xs text-pulpGold font-bold">목표: $10,000</span>
+                        </div>
+                        <h3 class="font-cinzel font-bold text-xl text-white mb-3">크라우드펀딩 기반 구축 및 법률 세팅</h3>
+                        <p class="font-mono text-xs text-gray-400 leading-relaxed mb-6">
+                            IRS 비영리 법인 설립(PULP Fund), 작업용 하드웨어, 엔진 프로토타이핑, 후원자 기능 투표 비용을 충당합니다. 이 단계에서는 완성된 게임 카피를 판매하거나 보장하지 않습니다.
+                        </p>
+                    </div>
+                    <a href="../preview2.html" class="font-bebas text-xl text-center uppercase tracking-wider bg-pulpCrimson text-white hover:bg-red-600 py-2.5 rounded transition-colors arcade-cabinet-border">
+                        크라우드펀딩 프리뷰 보기 ↗
+                    </a>
+                </div>
+
+                <!-- YELLOW: Phase 2 Crowdfund Card -->
+                <div class="bg-pulpPanel border-2 border-pulpGold rounded-2xl p-6 sm:p-8 flex flex-col justify-between arcade-cabinet-border neon-glow-gold">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-mono text-xs font-bold text-pulpGold uppercase bg-pulpGold/10 px-3 py-1 rounded border border-pulpGold/30">2단계 • 출시 예정</span>
+                            <span class="font-mono text-xs text-pulpNeonCyan font-bold">본격 제작 단계</span>
+                        </div>
+                        <h3 class="font-cinzel font-bold text-xl text-white mb-3">구룡바니아 본편 크라우드펀딩</h3>
+                        <p class="font-mono text-xs text-gray-400 leading-relaxed mb-6">
+                            1단계 투표 데이터를 기반으로 정밀하게 설계된 본격적인 프로덕션 캠페인을 런칭하여 정교한 아트, 음악, 보스 AI 및 멀티플랫폼 이식을 지원받습니다.
+                        </p>
+                    </div>
+                    <a href="https://pulpgaming.github.io/kowloonvania/ko/#poll" class="font-bebas text-xl text-center uppercase tracking-wider bg-pulpGold text-black hover:bg-yellow-400 py-2.5 rounded transition-colors font-bold">
+                        디렉터스 폴 투표하기 ↗
+                    </a>
+                </div>
+            </div>
+
+            <!-- Social Media Channels & Patreon Grid -->
+            <div class="bg-pulpPanel border border-pulpBorder rounded-2xl p-6 arcade-cabinet-border text-center">
+                <span class="font-mono text-xs text-pulpGold uppercase tracking-widest font-bold">크루에 합류하기</span>
+                <h4 class="font-bebas text-2xl text-white uppercase mt-1 mb-4">PULP GAMING 커뮤니티 채널</h4>
+                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 font-mono text-xs">
+                    <a href="https://www.patreon.com/cw/pulpg" target="_blank" class="bg-pulpBg hover:bg-pulpCrimson hover:text-white border border-pulpBorder p-2.5 rounded transition-colors font-bold text-pulpGold">Patreon</a>
+                    <a href="https://x.com/pulpgaminglol" target="_blank" class="bg-pulpBg hover:bg-pulpCrimson hover:text-white border border-pulpBorder p-2.5 rounded transition-colors">Twitter/X</a>
+                    <a href="https://www.youtube.com/@pulpgaminglol" target="_blank" class="bg-pulpBg hover:bg-pulpCrimson hover:text-white border border-pulpBorder p-2.5 rounded transition-colors">YouTube</a>
+                    <a href="https://www.tiktok.com/@pulpgaminglol" target="_blank" class="bg-pulpBg hover:bg-pulpCrimson hover:text-white border border-pulpBorder p-2.5 rounded transition-colors">TikTok</a>
+                    <a href="#" target="_blank" class="bg-pulpBg hover:bg-pulpCrimson hover:text-white border border-pulpBorder p-2.5 rounded transition-colors">Discord</a>
+                    <a href="#" target="_blank" class="bg-pulpBg hover:bg-pulpCrimson hover:text-white border border-pulpBorder p-2.5 rounded transition-colors">Facebook</a>
+                    <a href="#" target="_blank" class="bg-pulpBg hover:bg-pulpCrimson hover:text-white border border-pulpBorder p-2.5 rounded transition-colors">Twitch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Transparent $10K Crowdfund Budget Allocation -->
+        <section id="budget" class="max-w-4xl mx-auto px-6 py-16">
+            <div class="bg-pulpPanel border-2 border-pulpBorder rounded-2xl p-6 sm:p-8 arcade-cabinet-border">
+                <div class="text-center mb-8">
+                    <span class="font-mono text-xs text-pulpGold uppercase tracking-widest font-bold">완벽한 투명성</span>
+                    <h3 class="font-bebas text-3xl font-bold uppercase text-white mt-1">1단계 $10K 예산 배정 투명 내역</h3>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left font-mono text-xs">
+                        <thead>
+                            <tr class="border-b-2 border-pulpBorder text-pulpGold uppercase">
+                                <th class="pb-3">카테고리</th>
+                                <th class="pb-3">배정 금액</th>
+                                <th class="pb-3">1단계 목적</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-pulpBorder/60 text-gray-300">
+                            <tr>
+                                <td class="py-3.5 font-bold text-white">법률 및 비영리 설립</td>
+                                <td class="py-3.5 text-pulpCrimson font-bold">$2,500 (25%)</td>
+                                <td class="py-3.5 text-gray-400">PULP 펀드를 위한 IRS 501(c)(3) 신청 및 주(State) 법인 설립 비용</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 font-bold text-white">개발용 워크스테이션</td>
+                                <td class="py-3.5 text-pulpCrimson font-bold">$3,500 (35%)</td>
+                                <td class="py-3.5 text-gray-400">Godot 4 컴파일을 위한 필수 하드웨어 및 듀얼 모니터 세팅</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 font-bold text-white">프리프로덕션 타당성 검토</td>
+                                <td class="py-3.5 text-pulpCrimson font-bold">$2,500 (25%)</td>
+                                <td class="py-3.5 text-gray-400">프로토타입 메커닉 테스트, GDScript 아키텍처, 아트 디렉션</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 font-bold text-white">커뮤니티 툴 및 웹</td>
+                                <td class="py-3.5 text-pulpCrimson font-bold">$500 (5%)</td>
+                                <td class="py-3.5 text-gray-400">호스팅, 후원자 투표 인프라 및 비공개 디스코드 관리</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 font-bold text-white">플랫폼 및 결제 수수료</td>
+                                <td class="py-3.5 text-pulpCrimson font-bold">$1,000 (10%)</td>
+                                <td class="py-3.5 text-gray-400">크라우드펀딩 플랫폼 수수료 (5%) 및 결제 처리 수수료 (~5%)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section with Social Media & Patreon Links -->
+    <footer class="border-t border-pulpBorder/80 py-10 bg-pulpBg">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                 <a href="#" class="flex items-center gap-2 group">
+            <img src="../logo_front_Kowloonvania.webp" alt="Kowloonvania 로고" class="h-10 w-auto object-contain">
+        </a>
+                <p class="font-mono text-xs text-gray-500 mt-1">© 2026 Kowloonvania. 순수 펄프 액션 게임 프로젝트.</p>
+            </div>
+            
+            <!-- Footer Quick Links -->
+            <div class="flex flex-wrap gap-4 font-mono text-xs text-gray-400 items-center">
+                <a href="https://www.patreon.com/cw/pulpg" target="_blank" class="hover:text-pulpGold transition-colors font-bold">Patreon</a>
+                <span>•</span>
+                <a href="https://x.com/pulpgaminglol" target="_blank" class="hover:text-pulpNeonCyan transition-colors">Twitter/X</a>
+                <span>•</span>
+                <a href="https://www.youtube.com/@pulpgaminglol" target="_blank" class="hover:text-pulpGold transition-colors">YouTube</a>
+                <span>•</span>
+                <a href="https://www.tiktok.com/@pulpgaminglol" target="_blank" class="hover:text-pulpCrimson transition-colors">TikTok</a>
+                <span>•</span>
+                <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="hover:text-pulpNeonCyan transition-colors">Itch.io</a>
+                <span>•</span>
+                <a href="../preview2.html" class="hover:text-pulpGold transition-colors font-bold">크라우드펀딩 프리뷰</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
