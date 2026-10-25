@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh" class="h-full bg-[#08080a]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulp 基金第一阶段众筹活动预览方案</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pulpDark: '#08080a',
+                        pulpPanel: '#111116',
+                        pulpBorder: '#2a2a35',
+                        pulpCrimson: '#ff003c',
+                        pulpGold: '#ffb703',
+                        pulpCyan: '#00f0ff',
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'Fira Code', 'Monaco', 'Courier New', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #08080a; border-left: 1px solid #2a2a35; }
+        ::-webkit-scrollbar-thumb { background: #ff003c; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ffb703; }
+        .neon-border-red { box-shadow: 0 0 15px rgba(255, 0, 60, 0.25); }
+    </style>
+</head>
+<body class="h-full bg-pulpDark text-gray-300 font-mono flex flex-col justify-between p-3 sm:p-6 overflow-x-hidden">
+
+    <div class="max-w-4xl mx-auto w-full bg-pulpPanel border-2 border-pulpBorder rounded-xl neon-border-red overflow-hidden flex flex-col my-auto shadow-2xl">
+        
+        <!-- HEADER TITLE BAR -->
+        <header class="bg-black/80 border-b-2 border-pulpBorder p-4 sm:p-5 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <span class="inline-block w-3 h-3 rounded-full bg-pulpCrimson animate-ping"></span>
+                <div>
+                    <h1 class="text-white font-bold text-base sm:text-lg tracking-wider uppercase flex items-center gap-2">
+                        <span>PULP 基金</span>
+                        <span class="text-xs text-pulpGold bg-pulpCrimson/20 border border-pulpCrimson px-2 py-0.5 rounded">第一阶段</span>
+                    </h1>
+                    <p class="text-xs text-gray-400">众筹活动预览方案</p>
+                </div>
+            </div>
+            <a href="index.html" class="text-xs bg-pulpDark hover:bg-pulpBorder text-gray-300 px-3 py-1.5 rounded border border-pulpBorder transition-colors">
+                ← 返回首页
+            </a>
+        </header>
+
+        <!-- CONTENT PANEL -->
+        <main class="p-4 sm:p-8 overflow-y-auto max-h-[75vh] space-y-6">
+            
+            <!-- Announcement Banner -->
+            <div class="bg-gradient-to-r from-black via-pulpCrimson/40 to-black border-y-2 border-pulpCrimson p-3 text-center rounded-md">
+                <span class="bg-black text-pulpGold font-bold px-2 py-1 rounded text-xs border border-pulpGold mr-2">PULP GAMING 提示</span>
+                <span class="text-white font-bold text-xs sm:text-sm tracking-widest uppercase">第一阶段启动与工作室基础建设</span>
+            </div>
+
+            <!-- Section 1: Disclosure -->
+            <section class="space-y-2 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h2 class="text-pulpCrimson font-bold text-base sm:text-xl uppercase border-b border-pulpCrimson/50 pb-2 flex items-center gap-2">
+                    <span>⚠️</span> 全盘坦白：这到底是什么把戏？
+                </h2>
+                <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
+                    明人不说暗话：<a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="text-pulpGold font-bold underline hover:text-white transition-colors">这里的弗兰肯斯坦式Demo</a> 完全就是一个烟雾弹。它是一个拼凑而成的技术玩笑，纯粹为了吸引你点进来好把你们钓上钩。这个粗糙的实验远谈不上什么精致的“情书”，它只是我们用来证明自己还活着的笨拙方式。
+                </p>
+            </section>
+
+            <!-- Section 2: Real Mission -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h2 class="text-pulpGold font-bold text-base sm:text-xl uppercase border-b border-pulpGold/50 pb-2 flex items-center gap-2">
+                    <span>🧟</span> 帮助我们打造真正的巨兽（PULP 基金）
+                </h2>
+                <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
+                    玩笑归玩笑，我们的宏伟梦想是极其认真的：我们想要向科乐美的《恶魔城》（<em>Castlevania</em>）以及九龙城寨错综复杂的迷宫致敬，打造一款精美、硬核且纯粹的佳作。没有大厂资本干涉，也没有内购陷阱。只有由拿着报酬、真正满怀热忱的专业人士打造的 100% 免费游戏。
+                </p>
+                <div class="p-3 sm:p-4 bg-pulpPanel border-l-4 border-pulpGold rounded-r-md italic text-white text-xs sm:text-sm">
+                    “看吧，这个玩笑般的Demo是我们亲手做出来的，但为了把真正的猛兽带到现实，我们厚着脸皮恳求您的资助。”
+                </div>
+            </section>
+
+            <!-- Section 3: Roadmap -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h3 class="text-pulpCyan font-bold text-sm sm:text-lg uppercase border-b border-pulpCyan/50 pb-2 flex items-center gap-2">
+                    <span>🗺️</span> 两阶段路线图
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                    <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="block bg-pulpPanel p-4 rounded-lg border border-pulpCrimson/50 hover:border-pulpCrimson hover:bg-black/60 transition-all group space-y-2">
+                        <div class="text-pulpCrimson font-bold uppercase flex items-center justify-between">
+                            <span class="group-hover:underline">第一阶段（进行中）↗</span>
+                            <span class="text-xs bg-pulpCrimson text-white px-2 py-0.5 rounded">$10,000</span>
+                        </div>
+                        <p class="font-bold text-white">工作室启动与非营利组织注册</p>
+                        <p class="text-gray-400 text-xs">资助我们的法律非营利结构（PULP 基金）与工作站基线，同时您可以在总监投票中对核心机制进行投票。</p>
+                    </a>
+                    
+                    <a href="index.html#poll" class="block bg-pulpPanel p-4 rounded-lg border border-pulpCyan/50 hover:border-pulpCyan hover:bg-black/60 transition-all group space-y-2">
+                        <div class="text-pulpCyan font-bold uppercase flex items-center justify-between">
+                            <span class="group-hover:underline">第二阶段（敬请期待）↗</span>
+                            <span class="text-xs bg-pulpCyan/20 text-pulpCyan px-2 py-0.5 rounded border border-pulpCyan">$150,000</span>
+                        </div>
+                        <p class="font-bold text-white">《九龙城恶魔城》全面众筹</p>
+                        <p class="text-gray-400 text-xs">启动主线制作众筹，完全校准自第一阶段投票数据，用于支持完整美术、音乐、Boss AI及移植。</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section 4: Budget -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h3 class="text-pulpGold font-bold text-sm sm:text-lg uppercase border-b border-pulpGold/50 pb-2 flex items-center gap-2">
+                    <span>📊</span> 完全公开透明的 $10,000 预算分配
+                </h3>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <div class="h-4 w-full bg-pulpDark rounded-full overflow-hidden flex border border-pulpBorder my-2">
+                        <div class="bg-pulpCrimson h-full" style="width: 45%" title="45% 法律合规"></div>
+                        <div class="bg-pulpGold h-full" style="width: 25%" title="25% 工作室基础设施"></div>
+                        <div class="bg-pulpCyan h-full" style="width: 20%" title="20% 制作劳务"></div>
+                        <div class="bg-gray-600 h-full" style="width: 10%" title="10% 手续费"></div>
+                    </div>
+
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-2">
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpCrimson inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">非营利组织法律开销:</span>
+                                <span class="text-pulpCrimson font-bold ml-1">$4,500 (45%)</span>
+                                <p class="text-[10px] text-gray-400">加州注册与 IRS 501(c)(3) 申请</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpGold inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">工作室基础设施:</span>
+                                <span class="text-pulpGold font-bold ml-1">$2,500 (25%)</span>
+                                <p class="text-[10px] text-gray-400">工作站、备份及开发工具</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpCyan inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">开发劳务薪酬:</span>
+                                <span class="text-pulpCyan font-bold ml-1">$2,000 (20%)</span>
+                                <p class="text-[10px] text-gray-400">初期代码与美术周期报酬</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-gray-600 inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">平台与交易手续费:</span>
+                                <span class="text-gray-300 font-bold ml-1">$1,000 (10%)</span>
+                                <p class="text-[10px] text-gray-400">众筹平台与交易处理费</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 5: Donation Banner -->
+            <section class="space-y-4 bg-black/40 p-5 rounded-lg border-2 border-pulpGold neon-border-red text-center">
+                <h2 class="text-pulpGold font-bold text-base sm:text-xl uppercase border-b border-pulpGold/50 pb-2 flex items-center justify-center gap-2">
+                    <span>⚡</span> 直接赞助与社群支持
+                </h2>
+                <p class="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    第一阶段资金来自玩家社群的直接支持。每一分钱都将用于建立我们的法律非营利基金会、支付美术和开发人员的基础报酬并配备工作站。没有内购，没有门槛——只有最纯粹的社群驱动游戏开发。
+                </p>
+                <div class="pt-2">
+                    <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="inline-block bg-pulpCrimson hover:bg-red-600 text-white font-bold text-sm sm:text-base px-8 py-3 rounded-lg border-2 border-pulpGold transition-all transform hover:scale-105 uppercase tracking-wider shadow-lg">
+                        🔥 在 ITCH.IO 上赞助支持 ↗
+                    </a>
+                </div>
+            </section>
+
+            <div class="text-center pt-4 border-t border-pulpBorder text-pulpCrimson font-bold uppercase tracking-widest text-xs sm:text-sm">
+                别把我们晾在一边。纯粹低俗动作游戏项目。
+            </div>
+
+        </main>
+
+        <footer class="bg-black/80 border-t border-pulpBorder p-3 text-center text-[11px] text-gray-500">
+            PULP GAMING 架构 • 众筹预览方案
+        </footer>
+    </div>
+
+</body>
+</html>
