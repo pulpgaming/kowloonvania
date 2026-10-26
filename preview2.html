@@ -5,46 +5,231 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pulp Fund Phase 1 Crowdfund Campaign Viewer</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        pulpDark: '#08080a', pulpPanel: '#111116', pulpBorder: '#2a2a35',
-                        pulpCrimson: '#ff003c', pulpGold: '#ffb703', pulpCyan: '#00f0ff',
+                        pulpDark: '#08080a',
+                        pulpPanel: '#111116',
+                        pulpBorder: '#2a2a35',
+                        pulpCrimson: '#ff003c',
+                        pulpGold: '#ffb703',
+                        pulpCyan: '#00f0ff',
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'Fira Code', 'Monaco', 'Courier New', 'monospace'],
                     }
                 }
             }
         }
     </script>
+    <style>
+        /* Custom scrollbars for arcade aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08080a;
+            border-left: 1px solid #2a2a35;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff003c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffb703;
+        }
+        .neon-border-red {
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.25);
+        }
+    </style>
 </head>
 <body class="h-full bg-pulpDark text-gray-300 font-mono flex flex-col justify-between p-3 sm:p-6 overflow-x-hidden">
-    <div class="max-w-4xl mx-auto w-full bg-pulpPanel border-2 border-pulpBorder rounded-xl overflow-hidden flex flex-col my-auto shadow-2xl">
-        <header class="bg-black/80 border-b-2 border-pulpBorder p-4 sm:p-5 flex justify-between items-center">
-            <h1 class="text-white font-bold text-base sm:text-lg uppercase">PULP FUND <span class="text-xs text-pulpGold bg-pulpCrimson/20 border border-pulpCrimson px-2 py-0.5 rounded">PHASE 1 (TIPS VERSION)</span></h1>
-            <a href="index.html" class="text-xs bg-pulpDark text-gray-300 px-3 py-1.5 rounded border border-pulpBorder">← BACK TO HOME</a>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="max-w-4xl mx-auto w-full bg-pulpPanel border-2 border-pulpBorder rounded-xl neon-border-red overflow-hidden flex flex-col my-auto shadow-2xl">
+        
+        <!-- HEADER TITLE BAR -->
+        <header class="bg-black/80 border-b-2 border-pulpBorder p-4 sm:p-5 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <span class="inline-block w-3 h-3 rounded-full bg-pulpCrimson animate-ping"></span>
+                <div>
+                    <h1 class="text-white font-bold text-base sm:text-lg tracking-wider uppercase flex items-center gap-2">
+                        <span>PULP FUND</span>
+                        <span class="text-xs text-pulpGold bg-pulpCrimson/20 border border-pulpCrimson px-2 py-0.5 rounded">PHASE 1 (HYBRID DECK)</span>
+                    </h1>
+                    <p class="text-xs text-gray-400">Crowdfund Campaign & Direct Support Hub</p>
+                </div>
+            </div>
+            <a href="index.html" class="text-xs bg-pulpDark hover:bg-pulpBorder text-gray-300 px-3 py-1.5 rounded border border-pulpBorder transition-colors">
+                ← BACK TO HOME
+            </a>
         </header>
+
+        <!-- CONTENT PANEL -->
         <main class="p-4 sm:p-8 overflow-y-auto max-h-[75vh] space-y-6">
+            
+            <!-- Announcement Banner -->
+            <div class="bg-gradient-to-r from-black via-pulpCrimson/40 to-black border-y-2 border-pulpCrimson p-3 text-center rounded-md">
+                <span class="bg-black text-pulpGold font-bold px-2 py-1 rounded text-xs border border-pulpGold mr-2">PULP GAMING ALERT</span>
+                <span class="text-white font-bold text-xs sm:text-sm tracking-widest uppercase">PHASE 1 STARTUP &amp; STUDIO INFRASTRUCTURE</span>
+            </div>
+
+            <!-- Section 1: Disclosure -->
             <section class="space-y-2 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
-                <h2 class="text-pulpCrimson font-bold text-lg uppercase border-b border-pulpCrimson/50 pb-2">⚠️ FULL DISCLOSURE: WHAT IS THIS FARCE?</h2>
+                <h2 class="text-pulpCrimson font-bold text-base sm:text-xl uppercase border-b border-pulpCrimson/50 pb-2 flex items-center gap-2">
+                    <span>⚠️</span> FULL DISCLOSURE: WHAT IS THIS FARCE?
+                </h2>
                 <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
-                    Let’s get one thing straight: <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="text-pulpGold font-bold underline">the Frankenstein tech demo here</a> is a total red herring. It’s a cobbled-together tech-joke designed purely to trick you into clicking. We rely entirely on direct community tips to fund our purpose.
+                    Let’s get one thing straight: <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="text-pulpGold font-bold underline hover:text-white transition-colors">the Frankenstein tech demo here</a> is a total red herring. It’s a cobbled-together tech-joke designed purely to trick you into clicking so we could reel you in. Far from a polished "love letter," that rough-around-the-edges experiment is just our blunt-force way of proving we have a pulse.
                 </p>
             </section>
-            <section class="space-y-4 bg-black/40 p-5 rounded-lg border-2 border-pulpGold text-center">
-                <h2 class="text-pulpGold font-bold text-lg uppercase border-b border-pulpGold/50 pb-2">⚡ SUPPORT OUR PURPOSE VIA ITCH.IO TIPS</h2>
-                <p class="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                    We are keeping this game 100% free for everyone. Help us fund our legal non-profit setup, studio hardware, and development hours by leaving a direct tip on our itch.io page!
+
+            <!-- Section 2: Real Mission -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h2 class="text-pulpGold font-bold text-base sm:text-xl uppercase border-b border-pulpGold/50 pb-2 flex items-center gap-2">
+                    <span>🧟</span> HELP US BUILD THE REAL MONSTER (THE PULP FUND)
+                </h2>
+                <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
+                    Jokes aside, our actual dream is dead serious: we want to forge a gorgeous, hard-hitting, genuine homage to Konami’s <em class="text-white italic">Castlevania</em> and the gritty labyrinth of the Kowloon Walled City. No corporate suits. No paywalls. Just a 100% free game built by paid professionals who actually care.
                 </p>
-                <div class="pt-2">
-                    <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="inline-block bg-pulpCrimson hover:bg-red-600 text-white font-bold px-8 py-3 rounded-lg border-2 border-pulpGold uppercase tracking-wider shadow-lg">
-                        🔥 LEAVE A TIP ON ITCH.IO ↗
+                <div class="p-3 sm:p-4 bg-pulpPanel border-l-4 border-pulpGold rounded-r-md italic text-white text-xs sm:text-sm">
+                    "Look, we built this joke of a demo with our bare hands, but we're comically begging for your help to bring the real beast to life."
+                </div>
+            </section>
+
+            <!-- Section 3: Roadmap -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h3 class="text-pulpCyan font-bold text-sm sm:text-lg uppercase border-b border-pulpCyan/50 pb-2 flex items-center gap-2">
+                    <span>🗺️</span> THE TWO-PHASE ROADMAP
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                    <!-- PHASE 1 CARD -->
+                    <a href="https://gofund.me/62a85fe36" target="_blank" class="block bg-pulpPanel p-4 rounded-lg border border-pulpCrimson/50 hover:border-pulpCrimson hover:bg-black/60 transition-all group space-y-2">
+                        <div class="text-pulpCrimson font-bold uppercase flex items-center justify-between">
+                            <span class="group-hover:underline">PHASE 1 (LIVE NOW) ↗</span>
+                            <span class="text-xs bg-pulpCrimson text-white px-2 py-0.5 rounded">$10,000</span>
+                        </div>
+                        <p class="font-bold text-white">Studio Startup &amp; Non-Profit Formation</p>
+                        <p class="text-gray-400 text-xs">Funding our legal non-profit setup (PULP Fund) and workstation baseline while you vote on core mechanics in our Director's Poll.</p>
+                    </a>
+                    
+                    <!-- PHASE 2 CARD -->
+                    <a href="https://pulpgaming.github.io/kowloonvania/#poll" class="block bg-pulpPanel p-4 rounded-lg border border-pulpCyan/50 hover:border-pulpCyan hover:bg-black/60 transition-all group space-y-2">
+                        <div class="text-pulpCyan font-bold uppercase flex items-center justify-between">
+                            <span class="group-hover:underline">PHASE 2 (COMING SOON) ↗</span>
+                            <span class="text-xs bg-pulpCyan/20 text-pulpCyan px-2 py-0.5 rounded border border-pulpCyan">$150,000</span>
+                        </div>
+                        <p class="font-bold text-white">Full Kowloonvania Crowdfund</p>
+                        <p class="text-gray-400 text-xs">Launching our flagship production campaign calibrated directly from Phase 1 poll data to fund full art, music, boss AI, and ports.</p>
                     </a>
                 </div>
             </section>
+
+            <!-- Section 4: Budget Breakdown -->
+            <section class="space-y-3 bg-black/40 p-4 sm:p-5 rounded-lg border border-pulpBorder">
+                <h3 class="text-pulpGold font-bold text-sm sm:text-lg uppercase border-b border-pulpGold/50 pb-2 flex items-center gap-2">
+                    <span>📊</span> TRANSPARENT $10,000 BUDGET BREAKDOWN
+                </h3>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <div class="h-4 w-full bg-pulpDark rounded-full overflow-hidden flex border border-pulpBorder my-2">
+                        <div class="bg-pulpCrimson h-full" style="width: 45%" title="45% Non-Profit Legal"></div>
+                        <div class="bg-pulpGold h-full" style="width: 25%" title="25% Studio Infrastructure"></div>
+                        <div class="bg-pulpCyan h-full" style="width: 20%" title="20% Production Labor"></div>
+                        <div class="bg-gray-600 h-full" style="width: 10%" title="10% Fees"></div>
+                    </div>
+
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-2">
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpCrimson inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">Non-Profit Legal:</span>
+                                <span class="text-pulpCrimson font-bold ml-1">$4,500 (45%)</span>
+                                <p class="text-[10px] text-gray-400">CA state filing &amp; IRS 501(c)(3) setup</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpGold inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">Studio Infrastructure:</span>
+                                <span class="text-pulpGold font-bold ml-1">$2,500 (25%)</span>
+                                <p class="text-[10px] text-gray-400">Workstations, backups, dev tools</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-pulpCyan inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">Kowloonvania Labor:</span>
+                                <span class="text-pulpCyan font-bold ml-1">$2,000 (20%)</span>
+                                <p class="text-[10px] text-gray-400">Initial code and art cycle pay</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2 bg-pulpPanel p-2 rounded border border-pulpBorder">
+                            <span class="w-3 h-3 rounded-full bg-gray-600 inline-block"></span>
+                            <div>
+                                <span class="text-white font-bold">Platform &amp; Processing:</span>
+                                <span class="text-gray-300 font-bold ml-1">$1,000 (10%)</span>
+                                <p class="text-[10px] text-gray-400">GoFundMe &amp; payment processing fees</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 5: HYBRID SUPPORT OPTIONS (GOFUNDME, ITCH.IO TIPS, OR BOTH) -->
+            <section class="space-y-4 bg-black/40 p-5 rounded-lg border-2 border-pulpGold neon-border-red text-center">
+                <h2 class="text-pulpGold font-bold text-base sm:text-xl uppercase border-b border-pulpGold/50 pb-2 flex items-center justify-center gap-2">
+                    <span>⚡</span> SUPPORT OUR PURPOSE: CHOOSE YOUR METHOD
+                </h2>
+                <p class="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    We are keeping this game 100% free for everyone. To help fund our legal non-profit setup, studio hardware, and developer hours, you can back our full campaign on GoFundMe, leave a quick direct tip on itch.io, or support us on both! Every contribution goes straight toward building the real game.
+                </p>
+                
+                <!-- DUAL ACTION BUTTONS -->
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-2">
+                    <a href="https://gofund.me/62a85fe36" target="_blank" class="w-full sm:w-auto bg-pulpCrimson hover:bg-red-600 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-lg border-2 border-pulpGold transition-all transform hover:scale-105 uppercase tracking-wider shadow-lg">
+                        🔥 BACK US ON GOFUNDME ↗
+                    </a>
+                    <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="w-full sm:w-auto bg-pulpPanel hover:bg-pulpGold hover:text-black text-pulpGold font-bold text-xs sm:text-sm px-6 py-3 rounded-lg border-2 border-pulpGold transition-all transform hover:scale-105 uppercase tracking-wider shadow-lg">
+                        ⚡ LEAVE A TIP ON ITCH.IO ↗
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section 6: THANK YOU & FOLLOW US COMMUNITY HUB -->
+            <section class="bg-black/60 p-4 sm:p-5 rounded-lg border border-pulpBorder text-center space-y-3">
+                <h3 class="text-white font-bold text-sm sm:text-base uppercase tracking-wider text-pulpGold">
+                    🙏 THANK YOU FOR YOUR SUPPORT!
+                </h3>
+                <p class="text-xs text-gray-400 max-w-xl mx-auto leading-relaxed">
+                    Whether you back us financially, cast a vote in the Director's Poll, or just spread the word, you are keeping pure indie development alive. Follow our dev journey across our community channels below!
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-2 text-xs font-bold pt-1">
+                    <a href="https://www.patreon.com/cw/pulpg" target="_blank" class="bg-pulpPanel hover:bg-pulpCrimson hover:text-white text-pulpGold border border-pulpBorder px-3 py-1.5 rounded transition-colors">Patreon</a>
+                    <a href="https://x.com/pulpgaminglol" target="_blank" class="bg-pulpPanel hover:bg-pulpCrimson hover:text-white text-gray-300 border border-pulpBorder px-3 py-1.5 rounded transition-colors">Twitter/X</a>
+                    <a href="https://www.youtube.com/@pulpgaminglol" target="_blank" class="bg-pulpPanel hover:bg-pulpCrimson hover:text-white text-gray-300 border border-pulpBorder px-3 py-1.5 rounded transition-colors">YouTube</a>
+                    <a href="https://www.tiktok.com/@pulpgaminglol" target="_blank" class="bg-pulpPanel hover:bg-pulpCrimson hover:text-white text-gray-300 border border-pulpBorder px-3 py-1.5 rounded transition-colors">TikTok</a>
+                    <a href="https://pulpgaming.itch.io/kowloonvania" target="_blank" class="bg-pulpPanel hover:bg-pulpCrimson hover:text-white text-pulpCyan border border-pulpBorder px-3 py-1.5 rounded transition-colors">Itch.io</a>
+                </div>
+            </section>
+
+            <!-- Footer Tag -->
+            <div class="text-center pt-2 border-t border-pulpBorder text-pulpCrimson font-bold uppercase tracking-widest text-xs sm:text-sm">
+                Don't leave us hanging. Just pure pulp action.
+            </div>
+
         </main>
-        <footer class="bg-black/80 border-t border-pulpBorder p-3 text-center text-[11px] text-gray-500">PULP GAMING FRAMEWORK • STANDARD TIPS DECK</footer>
+
+        <!-- FOOTER -->
+        <footer class="bg-black/80 border-t border-pulpBorder p-3 text-center text-[11px] text-gray-500">
+            PULP GAMING FRAMEWORK • CROWDFUND &amp; TIPPING HYBRID DECK
+        </footer>
     </div>
+
 </body>
 </html>
